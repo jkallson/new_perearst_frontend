@@ -3,17 +3,17 @@
     <v-app-bar app color="white" fixed>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text>
+        <v-btn text @click="$vuetify.goTo('#aboutUs')">
           <v-icon>mdi-information-outline</v-icon>
           Meist
         </v-btn>
 
-        <v-btn text>
+        <v-btn text @click="$vuetify.goTo('#workers')">
           <v-icon>mdi-account-group</v-icon>
           Töötajad
         </v-btn>
 
-        <v-btn text>
+        <v-btn text @click="$vuetify.goTo('#prices')">
           <v-icon>mdi-cash-multiple</v-icon>
           Hinnakiri
         </v-btn>

@@ -8,7 +8,7 @@
         <v-divider></v-divider>
       </v-responsive>
     </v-container>
-    <v-container fluid class="grey lighten-3 px-0 pb-10">
+    <v-container fluid class="grey px-0 pb-6">
       <v-row class="px-3">
         <v-col cols="3">
           <WorkerTemplate></WorkerTemplate>

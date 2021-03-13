@@ -7,6 +7,9 @@
     <section id="workers">
       <Workers></Workers>
     </section>
+    <section id="prices" class="grey lighten-3">
+      <Prices></Prices>
+    </section>
   </fragment>
 </template>
 
@@ -14,9 +17,10 @@
 import Header from "@/components/Header";
 import AboutUs from "@/pages/client/homePage/components/AboutUs";
 import Workers from "@/pages/client/homePage/components/Workers";
+import Prices from "@/pages/client/homePage/components/Prices";
 export default {
   name: "HomePage",
-  components: { Workers, AboutUs, Header }
+  components: { Prices, Workers, AboutUs, Header }
 };
 </script>
 
