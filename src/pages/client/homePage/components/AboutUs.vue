@@ -21,7 +21,7 @@
       </v-card-text>
       <v-row class="px-5">
         <v-col cols="3" lg="3" md="3" sm="12" xs="12">
-          <v-card img="">
+          <v-card>
             <v-img src="https://bit.ly/30C4nHi"></v-img>
           </v-card>
         </v-col>
