@@ -13,6 +13,9 @@
     <section id="contact">
       <Contact></Contact>
     </section>
+    <section id="footer">
+      <Footer></Footer>
+    </section>
   </fragment>
 </template>
 
@@ -22,9 +25,10 @@ import AboutUs from "@/pages/client/homePage/components/aboutUs/AboutUs";
 import Workers from "@/pages/client/homePage/components/workers/Workers";
 import Prices from "@/pages/client/homePage/components/prices/Prices";
 import Contact from "@/pages/client/homePage/components/contact/Contact";
+import Footer from "@/components/Footer";
 export default {
   name: "HomePage",
-  components: { Contact, Prices, Workers, AboutUs, Header }
+  components: { Footer, Contact, Prices, Workers, AboutUs, Header }
 };
 </script>
 

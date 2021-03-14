@@ -1,21 +1,21 @@
 <template>
   <fragment>
-    <h2 class="display-2 font-weight-bold mb-3 text-left primary--text">
+    <h2 class="display-2 font-weight-bold mb-3 text-md-left primary--text">
       KONTAKT
     </h2>
-    <h4 class="text-left mb-3">
+    <h4 class="text-md-left mb-3">
       Küsimuste või probleemide korral helistage või kirjutage meile. Vastame
       Teile esimesel võimalusel!
     </h4>
-    <h3 class="text-left mb-3 primary--text">
+    <h3 class="text-md-left mb-3 primary--text">
       Kontakt informatsioon
     </h3>
-    <h4 class="text-left">Telefon</h4>
-    <h5 class="text-left mb-2 secondary--text">12345678</h5>
-    <h4 class="text-left">Email</h4>
-    <h5 class="text-left mb-2 secondary--text">test@email.com</h5>
-    <h4 class="text-left">Aadress</h4>
-    <h5 class="text-left mb-2 secondary--text">
+    <h4 class="text-md-left">Telefon</h4>
+    <h5 class="text-md-left mb-2 secondary--text">12345678</h5>
+    <h4 class="text-md-left">Email</h4>
+    <h5 class="text-md-left mb-2 secondary--text">test@email.com</h5>
+    <h4 class="text-md-left">Aadress</h4>
+    <h5 class="text-md-left mb-2 secondary--text">
       Nooruse 2-1, Ahja, Põlva vald
     </h5>
   </fragment>

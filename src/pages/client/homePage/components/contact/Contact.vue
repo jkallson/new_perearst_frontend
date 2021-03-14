@@ -3,10 +3,10 @@
     <SectionName name="VÕTKE ÜHENDUST"></SectionName>
     <Map></Map>
     <v-row class="px-5">
-      <v-col cols="6" lg="6" md="6" sm="12" xs="12">
+      <v-col cols="12" lg="6" md="6" sm="12" xs="12">
         <ContactInformation></ContactInformation>
       </v-col>
-      <v-col cols="6" lg="6" md="6" sm="12" xs="12">
+      <v-col cols="12" lg="6" md="6" sm="12" xs="12">
         <EmailForm></EmailForm>
       </v-col>
     </v-row>
