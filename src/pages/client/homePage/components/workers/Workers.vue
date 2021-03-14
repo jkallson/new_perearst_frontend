@@ -5,16 +5,16 @@
     </v-container>
     <v-container fluid class="grey px-0 pb-6">
       <v-row class="px-3">
-        <v-col cols="3">
+        <v-col cols="12" md="3">
           <WorkerTemplate></WorkerTemplate>
         </v-col>
-        <v-col cols="3">
+        <v-col cols="12" md="3">
           <WorkerTemplate></WorkerTemplate>
         </v-col>
-        <v-col cols="3">
+        <v-col cols="12" md="3">
           <WorkerTemplate></WorkerTemplate>
         </v-col>
-        <v-col cols="3">
+        <v-col cols="12" md="3">
           <WorkerTemplate></WorkerTemplate>
         </v-col>
       </v-row>
