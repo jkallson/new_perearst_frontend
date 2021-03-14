@@ -11,11 +11,11 @@
       Kontakt informatsioon
     </h3>
     <h4 class="text-left">Telefon</h4>
-    <h5 class="text-left mb-2" style="color: #8A8A8A">12345678</h5>
+    <h5 class="text-left mb-2 secondary--text">12345678</h5>
     <h4 class="text-left">Email</h4>
-    <h5 class="text-left mb-2" style="color: #8A8A8A">test@email.com</h5>
+    <h5 class="text-left mb-2 secondary--text">test@email.com</h5>
     <h4 class="text-left">Aadress</h4>
-    <h5 class="text-left mb-2" style="color: #8A8A8A">
+    <h5 class="text-left mb-2 secondary--text">
       Nooruse 2-1, Ahja, Põlva vald
     </h5>
   </fragment>
