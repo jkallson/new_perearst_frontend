@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import WorkerTemplate from "@/components/WorkerTemplate";
+import WorkerTemplate from "@/pages/client/homePage/components/workers/components/WorkerTemplate";
 export default {
   name: "Workers",
   components: { WorkerTemplate }

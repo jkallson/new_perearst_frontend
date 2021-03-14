@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import WorkerInfoButton from "@/pages/client/homePage/components/WorkerInfoButton";
+import WorkerInfoButton from "@/pages/client/homePage/components/workers/components/WorkerInfoButton";
 export default {
   name: "WorkerTemplate",
   components: { WorkerInfoButton }

@@ -17,7 +17,7 @@
           <v-icon>mdi-cash-multiple</v-icon>
           Hinnakiri
         </v-btn>
-        <v-btn text>
+        <v-btn text @click="$vuetify.goTo('#contact')">
           <v-icon>mdi-email-outline</v-icon>
           Kontakt
         </v-btn>
