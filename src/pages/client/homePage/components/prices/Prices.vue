@@ -1,12 +1,6 @@
 <template>
   <v-container fluid class="text-center">
-    <h2 class="display-2 font-weight-bold mb-3">HINNAD</h2>
-
-    <v-responsive class="mx-auto mb-4" width="56">
-      <v-divider style="border: 3px solid #F09F54"></v-divider>
-
-      <v-divider></v-divider>
-    </v-responsive>
+    <SectionName name="HINNAD"></SectionName>
     <BasicTable name="Tõendid" :items="desserts"></BasicTable>
     <BasicTable name="Visiiditasud" :items="desserts"></BasicTable>
     <BasicTable name="Vaktsineerimine" :items="desserts"></BasicTable>
@@ -15,9 +9,10 @@
 
 <script>
 import BasicTable from "@/components/BasicTable";
+import SectionName from "@/components/SectionName";
 export default {
   name: "Prices",
-  components: { BasicTable },
+  components: { SectionName, BasicTable },
   data() {
     return {
       headers: [

@@ -4,7 +4,7 @@
       v-bind:outlined="type === 'telefon'"
       min-width="200px"
       class="mb-2"
-      color="#F09F54"
+      color="primary"
       dark
     >
       {{ name }}

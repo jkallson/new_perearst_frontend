@@ -1,16 +1,13 @@
 <template>
   <fragment>
-    <h2
-      class="display-2 font-weight-bold mb-3 text-left"
-      style="color: #F09F54"
-    >
+    <h2 class="display-2 font-weight-bold mb-3 text-left primary--text">
       KONTAKT
     </h2>
     <h4 class="text-left mb-3">
       Küsimuste või probleemide korral helistage või kirjutage meile. Vastame
       Teile esimesel võimalusel!
     </h4>
-    <h3 class="text-left mb-3" style="color: #F09F54">
+    <h3 class="text-left mb-3 primary--text">
       Kontakt informatsioon
     </h3>
     <h4 class="text-left">Telefon</h4>

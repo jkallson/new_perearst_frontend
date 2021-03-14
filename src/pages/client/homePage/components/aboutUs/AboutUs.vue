@@ -1,12 +1,6 @@
 <template>
   <v-container fluid class="text-center pb-10">
-    <h2 class="display-2 font-weight-bold mb-3">MEIST</h2>
-
-    <v-responsive class="mx-auto mb-4" width="56">
-      <v-divider style="border: 3px solid #F09F54"></v-divider>
-
-      <v-divider></v-divider>
-    </v-responsive>
+    <SectionName name="MEIST"></SectionName>
     <v-card width="100%">
       <v-card-text>
         <p class="text--primary">
@@ -31,8 +25,10 @@
 </template>
 
 <script>
+import SectionName from "@/components/SectionName";
 export default {
-  name: "AboutUs"
+  name: "AboutUs",
+  components: { SectionName }
 };
 </script>
 

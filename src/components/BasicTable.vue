@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <v-toolbar short color="#F09F54" dark flat>
+    <v-toolbar short color="primary" dark flat>
       <v-toolbar-title>{{ name }}</v-toolbar-title>
     </v-toolbar>
     <v-data-table
