@@ -32,14 +32,23 @@
           <h1>Dr. Diana Kirss OÜ</h1>
           <v-row no-gutters>
             <v-col cols="12">
-              <v-btn color="primary" style="width: 295px" class="white--text">
+              <v-btn
+                color="primary"
+                style="width: 295px"
+                class="white--text"
+                to="/kodukord"
+              >
                 KODUKORRAST
               </v-btn>
             </v-col>
           </v-row>
           <v-row no-gutters class="pt-2">
             <v-col cols="12">
-              <v-btn color="primary" outlined style="width: 295px"
+              <v-btn
+                color="primary"
+                outlined
+                style="width: 295px"
+                to="/teadaanded"
                 >TEADAANDED</v-btn
               >
             </v-col>
