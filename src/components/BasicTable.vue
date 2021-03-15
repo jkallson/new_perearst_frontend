@@ -1,8 +1,6 @@
 <template>
   <fragment>
-    <v-toolbar short color="primary" dark flat>
-      <v-toolbar-title>{{ name }}</v-toolbar-title>
-    </v-toolbar>
+    <BasicToolbar :name="name"></BasicToolbar>
     <v-data-table
       :headers="headers"
       :items="items"
@@ -13,8 +11,10 @@
 </template>
 
 <script>
+import BasicToolbar from "@/components/BasicToolbar";
 export default {
   name: "BasicTable",
+  components: { BasicToolbar },
   props: {
     items: Array,
     name: String
