@@ -9,11 +9,11 @@
             Siit leiate viimased teadaanded Ahja perearstikabineti poolt!
           </h3>
           <BasicToolbar></BasicToolbar>
-          <v-expansion-panels focusable>
+          <v-expansion-panels accordion focusable>
             <v-expansion-panel v-for="(item, i) in items" :key="i">
-              <v-expansion-panel-header>{{
-                item.name
-              }}</v-expansion-panel-header>
+              <v-expansion-panel-header>
+                {{ item.name }}
+              </v-expansion-panel-header>
               <v-expansion-panel-content>
                 {{ item.content }}
               </v-expansion-panel-content>

@@ -1,6 +1,11 @@
 <template>
   <fragment>
     <v-app-bar app color="white" fixed>
+      <v-toolbar-items>
+        <v-btn text @click="redirectUser(0)">
+          Dr. Diana Kirss OÜ
+        </v-btn>
+      </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn text @click="redirectUser('#aboutUs')">
