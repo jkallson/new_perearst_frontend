@@ -4,67 +4,26 @@
     <v-container fluid>
       <v-card>
         <BasicToolbar name="Kodukorrast"></BasicToolbar>
-        <v-tabs vertical>
-          <v-tab>Vastuvõtule registreerimisest</v-tab>
-          <v-tab>Retseptide tellimisest</v-tab>
-          <v-tab>Töövõimetus- ja hoolduslehtedest</v-tab>
-          <v-tab>Telefoniajad</v-tab>
-          <v-tab>Analüüside võtmine</v-tab>
-          <v-tab-item v-for="n in 4" :key="n">
+        <v-tabs vertical class="hidden-xs-only">
+          <v-tab class="tab" v-for="(item, i) in items" :key="i">
+            {{ item.name }}
+          </v-tab>
+          <v-tab-item v-for="(item, i) in items" :key="i">
             <v-card flat>
               <v-card-text>
-                <p>
-                  Sed aliquam ultrices mauris. Donec posuere vulputate arcu.
-                  Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.
-                </p>
-
-                <p>
-                  Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel,
-                  lacus. Aenean tellus metus, bibendum sed, posuere ac, mattis
-                  non, nunc. Aliquam lobortis. Aliquam lobortis. Suspendisse non
-                  nisl sit amet velit hendrerit rutrum.
-                </p>
-
-                <p class="mb-0">
-                  Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu.
-                  Pellentesque libero tortor, tincidunt et, tincidunt eget,
-                  semper nec, quam. Phasellus blandit leo ut odio.
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-tab-item>
-          <v-tab-item>
-            <v-card flat>
-              <v-card-text>
-                <p>
-                  Sed aliquam ultrices mauris. Donec posuere vulputate arcu.
-                  Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.
-                </p>
-
-                <p>
-                  Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel,
-                  lacus. Aenean tellus metus, bibendum sed, posuere ac, mattis
-                  non, nunc. Aliquam lobortis. Aliquam lobortis. Suspendisse non
-                  nisl sit amet velit hendrerit rutrum. Nam ipsum risus, rutrum
-                  vitae, vestibulum eu, molestie vel, lacus. Aenean tellus
-                  metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam
-                  lobortis. Aliquam lobortis. Suspendisse non nisl sit amet
-                  velit hendrerit rutrum. Nam ipsum risus, rutrum vitae,
-                  vestibulum eu, molestie vel, lacus. Aenean tellus metus,
-                  bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis.
-                  Aliquam lobortis. Suspendisse non nisl sit amet velit
-                  hendrerit rutrum.
-                </p>
-
-                <p class="mb-0">
-                  Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu.
-                  Pellentesque libero tortor, tincidunt et, tincidunt eget,
-                  semper nec, quam. Phasellus blandit leo ut odio.
-                </p>
+                {{ item.content }}
               </v-card-text>
             </v-card>
           </v-tab-item>
         </v-tabs>
+        <v-expansion-panels focusable class="hidden-sm-and-up">
+          <v-expansion-panel v-for="(item, i) in items" :key="i">
+            <v-expansion-panel-header>{{ item.name }}</v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ item.content }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-card>
     </v-container>
   </fragment>
@@ -76,8 +35,27 @@ import BasicToolbar from "@/components/BasicToolbar";
 
 export default {
   name: "RegulationsTab",
-  components: { BasicToolbar, Header }
+  components: { BasicToolbar, Header },
+  data() {
+    return {
+      items: [
+        { name: "Vastuvõtule registreerimisest", content: "qwe" },
+        { name: "Retseptide tellimisest", content: "qwe" },
+        { name: "Töövõimetus- ja hoolduslehtedest", content: "qwe" },
+        { name: "Telefoniajad", content: "qwe" },
+        { name: "Analüüside võtmine", content: "qwe" },
+        { name: "Nimistusse registreerimine", content: "qwe" },
+        { name: "Juhilubade taotlemisest", content: "qwe" },
+        { name: "Väljaspool perearsti tööaega saate pöörduda", content: "qwe" },
+        { name: "Muud kontaktnumbrid", content: "qwe" }
+      ]
+    };
+  }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.tab {
+  white-space: normal;
+}
+</style>
