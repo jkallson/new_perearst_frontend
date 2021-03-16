@@ -3,21 +3,21 @@
     <v-app-bar app color="white" fixed>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text @click="$vuetify.goTo('#aboutUs')">
+        <v-btn text @click="redirectUser('#aboutUs')">
           <v-icon>mdi-information-outline</v-icon>
           Meist
         </v-btn>
 
-        <v-btn text @click="$vuetify.goTo('#workers')">
+        <v-btn text @click="redirectUser('#workers')">
           <v-icon>mdi-account-group</v-icon>
           Töötajad
         </v-btn>
 
-        <v-btn text @click="$vuetify.goTo('#prices')">
+        <v-btn text @click="redirectUser('#prices')">
           <v-icon>mdi-cash-multiple</v-icon>
           Hinnakiri
         </v-btn>
-        <v-btn text @click="$vuetify.goTo('#contact')">
+        <v-btn text @click="redirectUser('#contact')">
           <v-icon>mdi-email-outline</v-icon>
           Kontakt
         </v-btn>
@@ -61,7 +61,18 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  methods: {
+    redirectUser(scrollingPos) {
+      if (this.$route.path === "/") {
+        this.$vuetify.goTo(scrollingPos);
+      } else {
+        this.$router
+          .push("/")
+          .then(() => setTimeout(() => this.$vuetify.goTo(scrollingPos), 1));
+      }
+    }
+  }
 };
 </script>
 
