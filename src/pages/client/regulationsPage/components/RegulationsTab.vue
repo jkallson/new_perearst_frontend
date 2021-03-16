@@ -1,9 +1,10 @@
 <template>
   <fragment>
     <Header></Header>
-    <v-container fluid>
+    <v-container fluid class="grey lighten-3">
+      <SectionName name="Kodukorrast"></SectionName>
       <v-card>
-        <BasicToolbar name="Kodukorrast"></BasicToolbar>
+        <BasicToolbar></BasicToolbar>
         <v-tabs vertical class="hidden-xs-only">
           <v-tab class="tab" v-for="(item, i) in items" :key="i">
             {{ item.name }}
@@ -32,10 +33,11 @@
 <script>
 import Header from "@/components/Header";
 import BasicToolbar from "@/components/BasicToolbar";
+import SectionName from "@/components/SectionName";
 
 export default {
   name: "RegulationsTab",
-  components: { BasicToolbar, Header },
+  components: { SectionName, BasicToolbar, Header },
   data() {
     return {
       items: [

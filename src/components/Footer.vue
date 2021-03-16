@@ -4,15 +4,15 @@
       <v-col class="py-2 text-center white--text" cols="12">
         <v-row no-gutters class="pt-0">
           <v-col cols="4">
-            <h2 class="font-weight-bold">Aadress</h2>
+            <v-icon color="white">mdi-home</v-icon>
             <h5>Nooruse 2-1, Ahja, Põlva vald</h5>
           </v-col>
           <v-col cols="4">
-            <h2 class="font-weight-bold">Telefon</h2>
+            <v-icon color="white">mdi-phone</v-icon>
             <h5>12345678</h5>
           </v-col>
           <v-col cols="4">
-            <h2 class="font-weight-bold">Email</h2>
+            <v-icon color="white">mdi-at</v-icon>
             <h5>email@email.com</h5>
           </v-col>
         </v-row>
