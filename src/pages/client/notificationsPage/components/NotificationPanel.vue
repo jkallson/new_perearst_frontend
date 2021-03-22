@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import SectionName from "@/components/SectionName";
 import BasicToolbar from "@/components/BasicToolbar";
 export default {

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import AboutUs from "@/pages/client/homePage/components/aboutUs/AboutUs";
 import Workers from "@/pages/client/homePage/components/workers/Workers";
 import Prices from "@/pages/client/homePage/components/prices/Prices";
