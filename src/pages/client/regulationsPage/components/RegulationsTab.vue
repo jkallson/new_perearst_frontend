@@ -41,9 +41,21 @@ export default {
   data() {
     return {
       items: [
-        { name: "Vastuvõtule registreerimisest", content: "qwe" },
-        { name: "Retseptide tellimisest", content: "qwe" },
-        { name: "Töövõimetus- ja hoolduslehtedest", content: "qwe" },
+        {
+          name: "Vastuvõtule registreerimisest",
+          content:
+            "Sed massa justo, lacinia eu gravida ut, accumsan ut justo. Donec tincidunt massa non quam feugiat pellentesque. Curabitur congue blandit tincidunt. Donec eros nisl, sodales rutrum sem vitae, fringilla dictum lorem. Pellentesque semper mauris sit amet mauris elementum consectetur. Aenean tempor, purus non pellentesque gravida, quam ipsum commodo urna, in vestibulum libero neque quis lorem. Vestibulum in augue quis neque lobortis volutpat. Etiam molestie egestas massa in dapibus. Quisque dapibus et nulla vel egestas. Morbi purus orci, ullamcorper eu iaculis sit amet, pharetra et est. Donec ultricies ac magna eget posuere. In aliquam neque non dapibus hendrerit."
+        },
+        {
+          name: "Retseptide tellimisest",
+          content:
+            "Sed massa justo, lacinia eu gravida ut, accumsan ut justo. Donec tincidunt massa non quam feugiat pellentesque. Curabitur congue blandit tincidunt. Donec eros nisl, sodales rutrum sem vitae, fringilla dictum lorem. Pellentesque semper mauris sit amet mauris elementum consectetur. Aenean tempor, purus non pellentesque gravida, quam ipsum commodo urna, in vestibulum libero neque quis lorem. Vestibulum in augue quis neque lobortis volutpat. Etiam molestie egestas massa in dapibus. Quisque dapibus et nulla vel egestas. Morbi purus orci, ullamcorper eu iaculis sit amet, pharetra et est. Donec ultricies ac magna eget posuere. In aliquam neque non dapibus hendrerit."
+        },
+        {
+          name: "Töövõimetus- ja hoolduslehtedest",
+          content:
+            "Sed massa justo, lacinia eu gravida ut, accumsan ut justo. Donec tincidunt massa non quam feugiat pellentesque. Curabitur congue blandit tincidunt. Donec eros nisl, sodales rutrum sem vitae, fringilla dictum lorem. Pellentesque semper mauris sit amet mauris elementum consectetur. Aenean tempor, purus non pellentesque gravida, quam ipsum commodo urna, in vestibulum libero neque quis lorem. Vestibulum in augue quis neque lobortis volutpat. Etiam molestie egestas massa in dapibus. Quisque dapibus et nulla vel egestas. Morbi purus orci, ullamcorper eu iaculis sit amet, pharetra et est. Donec ultricies ac magna eget posuere. In aliquam neque non dapibus hendrerit."
+        },
         { name: "Telefoniajad", content: "qwe" },
         { name: "Analüüside võtmine", content: "qwe" },
         { name: "Nimistusse registreerimine", content: "qwe" },

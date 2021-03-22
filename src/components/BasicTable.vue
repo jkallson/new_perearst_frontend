@@ -1,11 +1,12 @@
 <template>
   <fragment>
-    <BasicToolbar :name="name"></BasicToolbar>
+    <BasicToolbar v-if="headerVisible" :name="name"></BasicToolbar>
     <v-data-table
-      :headers="headers"
-      :items="items"
+      :headers="tableConfig.headers"
+      :items="tableConfig.items"
       hide-default-footer
-      class="elevation-1 mb-5"
+      class="elevation-1"
+      :class="type"
     ></v-data-table>
   </fragment>
 </template>
@@ -16,21 +17,20 @@ export default {
   name: "BasicTable",
   components: { BasicToolbar },
   props: {
-    items: Array,
-    name: String
-  },
-  data() {
-    return {
-      headers: [
-        {
-          text: "Teenus",
-          value: "name"
-        },
-        { text: "Hind", value: "calories" }
-      ]
-    };
+    tableConfig: Object,
+    name: String,
+    type: String,
+    headerVisible: {
+      type: Boolean,
+      required: false,
+      default: true
+    }
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.price {
+  margin-bottom: 20px;
+}
+</style>
