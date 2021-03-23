@@ -11,7 +11,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn class="primary--text" v-bind="attrs" v-on="on">
+            <v-btn v-bind="attrs" v-on="on">
               Lisa uus
             </v-btn>
           </template>
