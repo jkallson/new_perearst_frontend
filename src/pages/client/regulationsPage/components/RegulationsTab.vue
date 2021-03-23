@@ -27,6 +27,7 @@
         </v-expansion-panels>
       </v-card>
     </v-container>
+    <Footer></Footer>
   </fragment>
 </template>
 
@@ -34,10 +35,11 @@
 import Header from "@/components/header/Header";
 import BasicToolbar from "@/components/BasicToolbar";
 import SectionName from "@/components/SectionName";
+import Footer from "@/components/Footer";
 
 export default {
   name: "RegulationsTab",
-  components: { SectionName, BasicToolbar, Header },
+  components: { Footer, SectionName, BasicToolbar, Header },
   data() {
     return {
       items: [

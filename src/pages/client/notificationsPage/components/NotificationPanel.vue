@@ -22,6 +22,7 @@
         </v-container>
       </v-card>
     </v-container>
+    <Footer></Footer>
   </fragment>
 </template>
 
@@ -29,9 +30,11 @@
 import Header from "@/components/header/Header";
 import SectionName from "@/components/SectionName";
 import BasicToolbar from "@/components/BasicToolbar";
+import Footer from "@/components/Footer";
+
 export default {
   name: "NotificationPanel",
-  components: { BasicToolbar, SectionName, Header },
+  components: { Footer, BasicToolbar, SectionName, Header },
   data() {
     return {
       items: [
