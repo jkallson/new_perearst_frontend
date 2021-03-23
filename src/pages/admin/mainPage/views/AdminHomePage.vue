@@ -1,0 +1,42 @@
+<template>
+  <v-container fill-height fluid>
+    <v-row no-gutters>
+      <v-col>
+        <AdminAboutUs></AdminAboutUs>
+      </v-col>
+    </v-row>
+    <v-row no-gutters class="pt-5">
+      <v-col>
+        <AdminWorkers></AdminWorkers>
+      </v-col>
+    </v-row>
+    <v-row no-gutters class="pt-5">
+      <v-col>
+        <v-card>
+          <BasicToolbar></BasicToolbar>
+          <p>asd</p>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col>
+        <v-card>
+          <BasicToolbar></BasicToolbar>
+          <p>asd</p>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+import BasicToolbar from "@/components/BasicToolbar";
+import AdminAboutUs from "@/pages/admin/mainPage/components/aboutUs/AdminAboutUs";
+import AdminWorkers from "@/pages/admin/mainPage/components/workers/AdminWorkers";
+export default {
+  name: "AdminHomePage",
+  components: { AdminWorkers, AdminAboutUs, BasicToolbar }
+};
+</script>
+
+<style scoped></style>

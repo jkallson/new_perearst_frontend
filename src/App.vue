@@ -11,3 +11,14 @@ export default {
   name: "App"
 };
 </script>
+<style>
+.background {
+  background: rgb(240, 159, 84);
+  background: linear-gradient(
+    180deg,
+    rgba(240, 159, 84, 1) 0%,
+    rgba(242, 185, 132, 1) 35%,
+    rgba(238, 203, 171, 1) 100%
+  );
+}
+</style>

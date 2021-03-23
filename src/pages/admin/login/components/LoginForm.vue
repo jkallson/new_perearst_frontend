@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height class="background">
     <Header :show-below-header="false"></Header>
-    <v-row no-gutters align="center">
+    <v-row no-gutters>
       <v-spacer></v-spacer>
       <v-col cols="auto">
         <v-card class="pa-5">
@@ -60,14 +60,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.background {
-  background: rgb(240, 159, 84);
-  background: linear-gradient(
-    180deg,
-    rgba(240, 159, 84, 1) 0%,
-    rgba(242, 185, 132, 1) 35%,
-    rgba(238, 203, 171, 1) 100%
-  );
-}
-</style>
+<style scoped></style>
