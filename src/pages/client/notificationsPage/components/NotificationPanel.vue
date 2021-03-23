@@ -3,24 +3,22 @@
     <Header></Header>
     <v-container fluid class="grey lighten-3">
       <SectionName name="Teadaanded"></SectionName>
-      <v-card>
-        <v-container>
-          <h3 class="text-center pt-4 mb-4">
-            Siit leiate viimased teadaanded Ahja perearstikabineti poolt!
-          </h3>
-          <BasicToolbar></BasicToolbar>
-          <v-expansion-panels accordion focusable>
-            <v-expansion-panel v-for="(item, i) in items" :key="i">
-              <v-expansion-panel-header>
-                {{ item.name }}
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                {{ item.content }}
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </v-container>
-      </v-card>
+      <v-container>
+        <h3 class="text-center pt-4 mb-4">
+          Siit leiate viimased teadaanded Ahja perearstikabineti poolt!
+        </h3>
+        <BasicToolbar></BasicToolbar>
+        <v-expansion-panels accordion focusable>
+          <v-expansion-panel v-for="(item, i) in items" :key="i">
+            <v-expansion-panel-header>
+              {{ item.name }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ item.content }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-container>
     </v-container>
     <Footer></Footer>
   </fragment>
