@@ -16,7 +16,7 @@
         @redirectUser="redirectUser"
       ></MobileHeaderLinks>
     </v-navigation-drawer>
-    <BelowHeader></BelowHeader>
+    <BelowHeader v-if="showBelowHeader"></BelowHeader>
   </fragment>
 </template>
 
@@ -27,6 +27,13 @@ import MobileHeaderLinks from "@/components/header/MobileHeaderLinks";
 export default {
   name: "Header",
   components: { MobileHeaderLinks, StandardHeaderLinks, BelowHeader },
+  props: {
+    showBelowHeader: {
+      type: Boolean,
+      required: false,
+      default: true
+    }
+  },
   data() {
     return {
       showMenu: false,
