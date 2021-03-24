@@ -6,11 +6,11 @@
       </v-col>
       <v-col cols="12" sm="6" order-sm="1">
         <h1 class="text-lg-h2">Dr. Diana Kirss OÜ</h1>
-        <v-row no-gutters>
+        <v-row no-gutters class="pt-lg-5">
           <v-col cols="12">
             <v-btn
               color="primary"
-              style="width: 295px"
+              style="width: 270px"
               class="white--text"
               to="/kodukord"
             >
@@ -23,7 +23,7 @@
             <v-btn
               color="primary"
               outlined
-              style="width: 295px"
+              style="width: 270px"
               to="/teadaanded"
               >TEADAANDED</v-btn
             >
