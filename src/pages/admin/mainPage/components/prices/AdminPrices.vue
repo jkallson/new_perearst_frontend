@@ -104,7 +104,7 @@ export default {
       },
       { text: "Hind", value: "price", sortable: false },
       { text: "Klass", value: "class", sortable: false },
-      { text: "Actions", value: "actions", sortable: false }
+      { text: "Muuda/Kustuta", value: "actions", sortable: false }
     ],
     prices: [],
     editedIndex: -1,

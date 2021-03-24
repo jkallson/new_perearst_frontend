@@ -3,6 +3,7 @@
     :headers="headers"
     :items="links"
     class="elevation-1"
+    style="word-break: break-all"
     hide-default-footer
   >
     <template v-slot:item.order="{ item }">
@@ -15,7 +16,7 @@
     </template>
     <template v-slot:top>
       <v-toolbar flat color="primary">
-        <v-toolbar-title class="white--text">KASULIKUD LINGID</v-toolbar-title>
+        <v-toolbar-title class="white--text">LINGID</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
@@ -27,7 +28,6 @@
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
             </v-card-title>
-
             <v-card-text>
               <v-container>
                 <v-row>
@@ -101,9 +101,9 @@ export default {
         sortable: false,
         value: "order"
       },
-      { text: "Nimi", value: "name" },
-      { text: "Link", value: "link" },
-      { text: "Actions", value: "actions", sortable: false }
+      { text: "Nimi", value: "name", sortable: false },
+      { text: "Link", value: "link", sortable: false },
+      { text: "Muuda/Kustuta", value: "actions", sortable: false }
     ],
     links: [],
     editedIndex: -1,

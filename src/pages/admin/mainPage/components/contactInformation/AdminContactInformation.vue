@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-toolbar class="toolbarCorners" dense color="primary" dark flat>
-      <v-toolbar-title>MUUDA KONTAKTANDMEID</v-toolbar-title>
+      <v-toolbar-title>KONTAKTANDMED</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip left>
         <template v-slot:activator="{ on, attrs }">
