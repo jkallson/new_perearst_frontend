@@ -10,7 +10,7 @@
           <v-col cols="12">
             <v-btn
               color="primary"
-              style="width: 270px"
+              style="width: 260px"
               class="white--text"
               to="/kodukord"
             >
@@ -23,7 +23,7 @@
             <v-btn
               color="primary"
               outlined
-              style="width: 270px"
+              style="width: 260px"
               to="/teadaanded"
               >TEADAANDED</v-btn
             >
