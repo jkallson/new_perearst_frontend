@@ -3,9 +3,20 @@
     <v-toolbar class="toolbarCorners" dense color="primary" dark flat>
       <v-toolbar-title>MUUDA KONTAKTANDMEID</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn large icon @click="saveContactDetails">
-        <v-icon>mdi-content-save-outline</v-icon>
-      </v-btn>
+      <v-tooltip left>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            large
+            v-bind="attrs"
+            v-on="on"
+            @click="saveContactDetails"
+          >
+            <v-icon>mdi-content-save-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>Salvesta informatsioon</span>
+      </v-tooltip>
     </v-toolbar>
     <v-card-actions>
       <v-row>
