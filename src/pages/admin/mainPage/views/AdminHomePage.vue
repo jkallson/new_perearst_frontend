@@ -1,5 +1,6 @@
 <template>
   <v-container fill-height fluid>
+    <AdminHeader></AdminHeader>
     <v-row no-gutters>
       <v-col>
         <AdminAboutUs></AdminAboutUs>
@@ -34,9 +35,11 @@ import AdminWorkers from "@/pages/admin/mainPage/components/workers/AdminWorkers
 import AdminPrices from "@/pages/admin/mainPage/components/prices/AdminPrices";
 import AdminContactInformation from "@/pages/admin/mainPage/components/contactInformation/AdminContactInformation";
 import AdminUsefulLinks from "@/pages/admin/mainPage/components/usefulLinks/AdminUsefulLinks";
+import AdminHeader from "@/pages/admin/mainPage/components/header/AdminHeader";
 export default {
   name: "AdminHomePage",
   components: {
+    AdminHeader,
     AdminUsefulLinks,
     AdminContactInformation,
     AdminPrices,

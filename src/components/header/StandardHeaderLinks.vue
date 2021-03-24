@@ -1,6 +1,6 @@
 <template>
-  <fragment
-    ><v-toolbar-items>
+  <fragment>
+    <v-toolbar-items>
       <v-btn text @click="redirectUser(0)">
         Dr. Diana Kirss OÜ
       </v-btn>
@@ -15,8 +15,8 @@
         <v-icon>{{ link.icon }}</v-icon>
         {{ link.text }}
       </v-btn>
-    </v-toolbar-items></fragment
-  >
+    </v-toolbar-items>
+  </fragment>
 </template>
 
 <script>
