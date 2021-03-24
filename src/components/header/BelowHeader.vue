@@ -1,11 +1,11 @@
 <template>
   <v-container class="text-center">
-    <v-row align="end">
+    <v-row align="end" align-lg="center">
       <v-col cols="12" sm="6" order-sm="2">
-        <v-img contain src="https://bit.ly/30C4nHi"> </v-img>
+        <v-img contain max-height="350" src="https://bit.ly/30C4nHi"> </v-img>
       </v-col>
       <v-col cols="12" sm="6" order-sm="1">
-        <h1>Dr. Diana Kirss OÜ</h1>
+        <h1 class="text-lg-h2">Dr. Diana Kirss OÜ</h1>
         <v-row no-gutters>
           <v-col cols="12">
             <v-btn
