@@ -3,7 +3,7 @@
     <AdminHeader></AdminHeader>
     <v-row no-gutters>
       <v-col>
-        <AdminAboutUs :text="homePageData.aboutUsText"></AdminAboutUs>
+        <AdminAboutUs :about-us="homePageData.aboutUsText"></AdminAboutUs>
       </v-col>
     </v-row>
     <v-row class="pt-5 mt-0">
@@ -63,7 +63,7 @@ export default {
 function transform(requestResult) {
   const requestData = requestResult.data.data;
   return {
-    aboutUsText: requestData.aboutUs.text,
+    aboutUsText: requestData.aboutUs,
     contactInformation: requestData.contactInformation,
     workers: requestData.workers,
     prices: requestData.prices.flatMap(element => element.data),

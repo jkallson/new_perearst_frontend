@@ -18,25 +18,37 @@
 
 <script>
 import { VueEditor } from "vue2-editor";
+import api from "@/repository/api";
 export default {
   name: "AdminAboutUs",
   components: { VueEditor },
   props: {
-    text: String
+    aboutUs: Object,
+    default() {
+      return {
+        _id: "",
+        text: ""
+      };
+    }
   },
   data() {
     return {
-      aboutUsText: this.text
+      aboutUsText: ""
     };
   },
   watch: {
-    text: function(newVal) {
-      this.aboutUsText = newVal;
+    aboutUs: function(newVal) {
+      console.log(newVal);
+      this.aboutUsText = newVal.text;
     }
   },
   methods: {
     saveText() {
-      console.log(this.aboutUsText);
+      api.updateAboutUsText(
+        this.aboutUs._id,
+        this.aboutUsText,
+        localStorage.token
+      );
     }
   }
 };

@@ -3,9 +3,7 @@
     <SectionName name="MEIST"></SectionName>
     <v-card width="100%">
       <v-card-text>
-        <p class="text--primary">
-          {{ text }}
-        </p>
+        <p class="text--primary" v-html="text"></p>
       </v-card-text>
       <v-row class="px-5">
         <v-col cols="12" md="3" v-for="n in 4" :key="n">

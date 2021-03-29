@@ -8,6 +8,7 @@ export default {
         data: {
           query: `{
                 aboutUs {
+                    _id
                     text
                 }
                 prices {
@@ -64,6 +65,27 @@ export default {
                 }
             }
                 `
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async updateAboutUsText(id, text, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: "http://localhost:3000/graphql",
+        data: {
+          query: `mutation{
+                updateAboutUsText(aboutUsTextInput: {_id: "${id}", text: "${text}"}) {
+                    text
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
         }
       });
     } catch (error) {
