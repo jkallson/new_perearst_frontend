@@ -22,6 +22,7 @@
 <script>
 import StandardHeaderLinks from "@/components/header/StandardHeaderLinks";
 import MobileHeaderLinks from "@/components/header/MobileHeaderLinks";
+import { store } from "@/store";
 export default {
   name: "AdminHeader",
   components: { StandardHeaderLinks, MobileHeaderLinks },
@@ -40,12 +41,17 @@ export default {
   methods: {
     redirectUser(link) {
       if (link === "logout") {
-        console.log("logout user");
+        this.logout();
       }
       this.$router
         .push("/")
         .then(() => setTimeout(() => this.$vuetify.goTo(0), 1));
       this.showMenu = false;
+    },
+    logout() {
+      localStorage.removeItem("token");
+      store.commit("validLogin");
+      window.location = "/";
     }
   }
 };

@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     redirectUser(value) {
+      localStorage.removeItem("token");
       this.$emit("redirectUser", value);
     }
   }

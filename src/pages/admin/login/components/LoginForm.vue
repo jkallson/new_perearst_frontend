@@ -34,7 +34,7 @@
           <v-row justify="center" class="pt-0">
             <v-col cols="12">
               <div class="text-center">
-                <v-btn color="primary">LOGI SISSE</v-btn>
+                <v-btn color="primary" @click="login">LOGI SISSE</v-btn>
               </div>
             </v-col>
           </v-row>
@@ -47,6 +47,9 @@
 
 <script>
 import Header from "@/components/header/Header";
+import api from "@/repository/api";
+import { store } from "@/store";
+
 export default {
   name: "LoginForm",
   components: { Header },
@@ -56,6 +59,19 @@ export default {
       password: "",
       showPassword: false
     };
+  },
+  methods: {
+    async login() {
+      const response = await api.login(this.username, this.password);
+      this.checkLogin(response);
+    },
+    checkLogin(response) {
+      if (response && response.status === 200 && response.statusText === "OK") {
+        localStorage.token = response.data.data.login.token;
+        store.commit("validLogin");
+        this.$router.push("/admin/avaleht");
+      }
+    }
   }
 };
 </script>

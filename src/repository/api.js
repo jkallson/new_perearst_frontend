@@ -51,5 +51,23 @@ export default {
     } catch (error) {
       console.error(error);
     }
+  },
+  async login(username, password) {
+    try {
+      return await axios({
+        method: "POST",
+        url: "http://localhost:3000/graphql",
+        data: {
+          query: `{
+                login(username: "${username}", password: "${password}") {
+                    token
+                }
+            }
+                `
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 };

@@ -5,6 +5,7 @@ import Regulations from "@/pages/client/regulationsPage/views/Regulations";
 import Notifications from "@/pages/client/notificationsPage/views/Notifications";
 import Login from "@/pages/admin/login/views/Login";
 import AdminHomePage from "@/pages/admin/mainPage/views/AdminHomePage";
+import { store } from "@/store";
 
 Vue.use(VueRouter);
 
@@ -34,11 +35,10 @@ const routes = [
     name: "AdminHomePage",
     component: AdminHomePage,
     beforeEnter: (to, from, next) => {
-      // eslint-disable-next-line no-constant-condition
-      if ("qwe" === "2qwe") {
+      if (store.getters.isAuth) {
         next();
       } else {
-        next();
+        next({ name: "Login" });
       }
     }
   }
