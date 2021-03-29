@@ -4,13 +4,7 @@
     <v-card width="100%">
       <v-card-text>
         <p class="text--primary">
-          Duis nec commodo enim. Curabitur pretium mauris nec scelerisque
-          faucibus. Sed eget porta enim, sit amet volutpat enim. Integer ac
-          tempor risus, ut fermentum sem. Fusce venenatis odio vel metus
-          fringilla rhoncus. Vestibulum ante ipsum primis in faucibus orci
-          luctus et ultrices posuere cubilia curae; Nulla porta porta justo, vel
-          auctor enim pellentesque non. Phasellus congue semper sapien.
-          Suspendisse at tincidunt tortor.
+          {{ text }}
         </p>
       </v-card-text>
       <v-row class="px-5">
@@ -28,6 +22,12 @@
 import SectionName from "@/components/SectionName";
 export default {
   name: "AboutUs",
+  props: {
+    text: {
+      type: String,
+      default: ""
+    }
+  },
   components: { SectionName }
 };
 </script>

@@ -36,7 +36,13 @@ export default {
   components: { BasicTable },
   props: {
     name: String,
-    type: String
+    type: String,
+    daysWithTimes: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
   },
   data() {
     return {

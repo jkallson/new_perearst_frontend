@@ -4,11 +4,19 @@
       <v-img src="https://bit.ly/2Nl2ufe"></v-img>
     </v-avatar>
     <v-card-text>
-      <h2 class="font-weight-bold">Töötaja Tööline</h2>
-      <div>Perearst</div>
+      <h2 class="font-weight-bold">{{ worker.name }}</h2>
+      <div>{{ worker.position }}</div>
     </v-card-text>
-    <WorkerInfoButton name="Vastuvõtu ajad" type="reception"></WorkerInfoButton>
-    <WorkerInfoButton name="Telefoni ajad" type="telefon"></WorkerInfoButton>
+    <WorkerInfoButton
+      name="Vastuvõtu ajad"
+      type="reception"
+      :days-with-times="worker.receptionTimes"
+    ></WorkerInfoButton>
+    <WorkerInfoButton
+      name="Telefoni ajad"
+      type="telefon"
+      :days-with-times="worker.mobileTimes"
+    ></WorkerInfoButton>
   </v-card>
 </template>
 
@@ -16,7 +24,10 @@
 import WorkerInfoButton from "@/pages/client/homePage/components/workers/components/WorkerInfoButton";
 export default {
   name: "WorkerTemplate",
-  components: { WorkerInfoButton }
+  components: { WorkerInfoButton },
+  props: {
+    worker: Object
+  }
 };
 </script>
 

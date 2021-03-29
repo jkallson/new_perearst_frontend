@@ -3,7 +3,7 @@
     <BasicToolbar v-if="headerVisible" :name="name"></BasicToolbar>
     <v-data-table
       :headers="tableConfig.headers"
-      :items="tableConfig.items"
+      :items="items"
       hide-default-footer
       class="elevation-1"
       :class="type"
@@ -20,6 +20,7 @@ export default {
     tableConfig: Object,
     name: String,
     type: String,
+    items: Array,
     headerVisible: {
       type: Boolean,
       required: false,

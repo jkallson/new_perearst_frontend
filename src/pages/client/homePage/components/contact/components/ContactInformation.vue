@@ -11,19 +11,26 @@
       Kontakt informatsioon
     </h3>
     <h4 class="text-md-left">Telefon</h4>
-    <h5 class="text-md-left mb-2 secondary--text">12345678</h5>
+    <h5 class="text-md-left mb-2 secondary--text">
+      {{ contactInformation.phone }}
+    </h5>
     <h4 class="text-md-left">Email</h4>
-    <h5 class="text-md-left mb-2 secondary--text">test@email.com</h5>
+    <h5 class="text-md-left mb-2 secondary--text">
+      {{ contactInformation.email }}
+    </h5>
     <h4 class="text-md-left">Aadress</h4>
     <h5 class="text-md-left mb-2 secondary--text">
-      Nooruse 2-1, Ahja, Põlva vald
+      {{ contactInformation.address }}
     </h5>
   </fragment>
 </template>
 
 <script>
 export default {
-  name: "ContactInformation"
+  name: "ContactInformation",
+  props: {
+    contactInformation: Object
+  }
 };
 </script>
 
