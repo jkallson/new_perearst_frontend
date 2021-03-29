@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <WorkersTable></WorkersTable>
+    <WorkersTable :workers="workers"></WorkersTable>
   </v-card>
 </template>
 
@@ -8,7 +8,10 @@
 import WorkersTable from "@/pages/admin/mainPage/components/workers/components/WorkersTable";
 export default {
   name: "AdminWorkers",
-  components: { WorkersTable }
+  components: { WorkersTable },
+  props: {
+    workers: Array
+  }
 };
 </script>
 

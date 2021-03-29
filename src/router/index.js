@@ -38,7 +38,7 @@ const routes = [
       if ("qwe" === "2qwe") {
         next();
       } else {
-        next({ name: "Login" });
+        next();
       }
     }
   }

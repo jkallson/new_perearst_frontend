@@ -2,7 +2,6 @@
   <v-data-table
     :headers="headers"
     :items="prices"
-    sort-by="price"
     hide-default-footer
     class="elevation-1"
   >
@@ -81,17 +80,20 @@
         mdi-delete
       </v-icon>
     </template>
-    <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize">
-        Reset
-      </v-btn>
-    </template>
   </v-data-table>
 </template>
 
 <script>
 export default {
   name: "AdminPrices",
+  props: {
+    prices: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
   data: () => ({
     dialog: false,
     dialogDelete: false,
@@ -106,7 +108,6 @@ export default {
       { text: "Klass", value: "class", sortable: false },
       { text: "Muuda/Kustuta", value: "actions", sortable: false }
     ],
-    prices: [],
     editedIndex: -1,
     editedItem: {
       name: "",
@@ -135,36 +136,7 @@ export default {
     }
   },
 
-  created() {
-    this.initialize();
-  },
-
   methods: {
-    initialize() {
-      this.prices = [
-        {
-          name: "Juhilubade tervisetõend",
-          price: "10 eurot",
-          class: "Tõendid"
-        },
-        {
-          name: "Puugisüst",
-          price: "11 eurot",
-          class: "Vaktsineerime järgnevate haiguste vastu"
-        },
-        {
-          name: "Tervisetõend (sisaldab kopsuröntgenit)",
-          price: "Tasuta",
-          class: "Tõendid"
-        },
-        {
-          name: "Kindlustamata inimese vastuvõtt",
-          price: "18 eurot",
-          class: "Visiiditasud"
-        }
-      ];
-    },
-
     editItem(item) {
       this.editedIndex = this.prices.indexOf(item);
       this.editedItem = Object.assign({}, item);

@@ -94,6 +94,9 @@ import WorkerTimes from "@/pages/admin/mainPage/components/workers/components/Wo
 export default {
   name: "WorkersTable",
   components: { WorkerTimes },
+  props: {
+    workers: Array
+  },
   data: () => ({
     dialog: false,
     dialogDelete: false,
@@ -112,7 +115,6 @@ export default {
         align: "center"
       }
     ],
-    workers: [],
     editedIndex: -1,
     editedItem: {
       name: "",
@@ -169,88 +171,7 @@ export default {
     }
   },
 
-  created() {
-    this.initialize();
-  },
-
   methods: {
-    initialize() {
-      this.workers = [
-        {
-          name: "Töötaja Üks",
-          position: "Perearst",
-          receptionTimes: [
-            { day: "Esmaspäev", time: "08.00-19.00" },
-            { day: "Teisipäev", time: "08.00-19.00" },
-            { day: "Kolmapäev", time: "08.00-19.00" },
-            { day: "Neljapäev", time: "08.00-19.00" },
-            { day: "Reede", time: "08.00-19.00" }
-          ],
-          mobileTimes: [
-            { day: "Esmaspäev", time: "18.00-19.00" },
-            { day: "Teisipäev", time: "18.00-19.00" },
-            { day: "Kolmapäev", time: "18.00-19.00" },
-            { day: "Neljapäev", time: "18.00-19.00" },
-            { day: "Reede", time: "18.00-19.00" }
-          ]
-        },
-        {
-          name: "Töötaja Kaks",
-          position: "Perearsti asendus",
-          receptionTimes: [
-            { day: "Esmaspäev", time: "08.00-19.00" },
-            { day: "Teisipäev", time: "08.00-19.00" },
-            { day: "Kolmapäev", time: "08.00-19.00" },
-            { day: "Neljapäev", time: "08.00-19.00" },
-            { day: "Reede", time: "08.00-19.00" }
-          ],
-          mobileTimes: [
-            { day: "Esmaspäev", time: "18.00-19.00" },
-            { day: "Teisipäev", time: "18.00-19.00" },
-            { day: "Kolmapäev", time: "18.00-19.00" },
-            { day: "Neljapäev", time: "18.00-19.00" },
-            { day: "Reede", time: "18.00-19.00" }
-          ]
-        },
-        {
-          name: "Töötaja Kolm",
-          position: "Pereõde",
-          receptionTimes: [
-            { day: "Esmaspäev", time: "08.00-19.00" },
-            { day: "Teisipäev", time: "08.00-19.00" },
-            { day: "Kolmapäev", time: "08.00-19.00" },
-            { day: "Neljapäev", time: "08.00-19.00" },
-            { day: "Reede", time: "08.00-19.00" }
-          ],
-          mobileTimes: [
-            { day: "Esmaspäev", time: "18.00-19.00" },
-            { day: "Teisipäev", time: "18.00-19.00" },
-            { day: "Kolmapäev", time: "18.00-19.00" },
-            { day: "Neljapäev", time: "18.00-19.00" },
-            { day: "Reede", time: "18.00-19.00" }
-          ]
-        },
-        {
-          name: "Töötaja Neli",
-          position: "Pereõde",
-          receptionTimes: [
-            { day: "Esmaspäev", time: "08.00-19.00" },
-            { day: "Teisipäev", time: "08.00-19.00" },
-            { day: "Kolmapäev", time: "08.00-19.00" },
-            { day: "Neljapäev", time: "08.00-19.00" },
-            { day: "Reede", time: "08.00-19.00" }
-          ],
-          mobileTimes: [
-            { day: "Esmaspäev", time: "18.00-19.00" },
-            { day: "Teisipäev", time: "18.00-19.00" },
-            { day: "Kolmapäev", time: "18.00-19.00" },
-            { day: "Neljapäev", time: "18.00-19.00" },
-            { day: "Reede", time: "18.00-19.00" }
-          ]
-        }
-      ];
-    },
-
     editItem(item) {
       this.editedIndex = this.workers.indexOf(item);
       this.editedItem = Object.assign({}, item);

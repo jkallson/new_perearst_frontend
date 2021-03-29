@@ -3,17 +3,17 @@
     <AdminHeader></AdminHeader>
     <v-row no-gutters>
       <v-col>
-        <AdminAboutUs></AdminAboutUs>
+        <AdminAboutUs :text="homePageData.aboutUsText"></AdminAboutUs>
       </v-col>
     </v-row>
     <v-row class="pt-5 mt-0">
       <v-col class="pt-0">
-        <AdminWorkers></AdminWorkers>
+        <AdminWorkers :workers="homePageData.workers"></AdminWorkers>
       </v-col>
     </v-row>
     <v-row no-gutters class="pt-5">
       <v-col>
-        <AdminPrices></AdminPrices>
+        <AdminPrices :prices="homePageData.prices"></AdminPrices>
       </v-col>
     </v-row>
     <v-row no-gutters class="pt-5">
@@ -36,6 +36,7 @@ import AdminPrices from "@/pages/admin/mainPage/components/prices/AdminPrices";
 import AdminContactInformation from "@/pages/admin/mainPage/components/contactInformation/AdminContactInformation";
 import AdminUsefulLinks from "@/pages/admin/mainPage/components/usefulLinks/AdminUsefulLinks";
 import AdminHeader from "@/pages/admin/mainPage/components/header/AdminHeader";
+import api from "@/repository/api";
 export default {
   name: "AdminHomePage",
   components: {
@@ -45,8 +46,28 @@ export default {
     AdminPrices,
     AdminWorkers,
     AdminAboutUs
+  },
+  data() {
+    return {
+      requestResult: [],
+      homePageData: {}
+    };
+  },
+  async mounted() {
+    this.requestResult = await api.getAllInformation();
+    this.homePageData = transform(this.requestResult);
   }
 };
+function transform(requestResult) {
+  const requestData = requestResult.data.data;
+  return {
+    aboutUsText: requestData.aboutUs.text,
+    contactInformation: requestData.contactInformation,
+    workers: requestData.workers,
+    prices: requestData.prices.flatMap(element => element.data),
+    links: requestData.links
+  };
+}
 </script>
 
 <style scoped></style>
