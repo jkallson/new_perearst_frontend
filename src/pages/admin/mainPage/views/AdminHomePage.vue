@@ -23,7 +23,9 @@
     </v-row>
     <v-row no-gutters class="pt-5">
       <v-col>
-        <AdminContactInformation></AdminContactInformation>
+        <AdminContactInformation
+          :contact-information="homePageData.contactInformation"
+        ></AdminContactInformation>
       </v-col>
     </v-row>
   </v-container>

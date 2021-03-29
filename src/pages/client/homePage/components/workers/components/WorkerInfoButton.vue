@@ -23,6 +23,7 @@
           type="times"
           :header-visible="false"
           :table-config="tableConfig"
+          :items="daysWithTimes"
         ></BasicTable>
       </v-card>
     </v-dialog>
@@ -60,28 +61,6 @@ export default {
             align: "end",
             value: "time",
             sortable: false
-          }
-        ],
-        items: [
-          {
-            day: "Esmaspäev",
-            time: 159 + " eurot"
-          },
-          {
-            day: "Teisipäev",
-            time: 237 + " eurot"
-          },
-          {
-            day: "Kolmapäev",
-            time: 262 + " eurot"
-          },
-          {
-            day: "Neljapäev",
-            time: 305 + " eurot"
-          },
-          {
-            day: "Reede",
-            time: 356 + " eurot"
           }
         ]
       }

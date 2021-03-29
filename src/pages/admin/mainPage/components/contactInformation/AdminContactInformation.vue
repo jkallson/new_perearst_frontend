@@ -25,7 +25,7 @@
             hide-details
             outlined
             label="Aadress"
-            v-model="address"
+            v-model="contactInformation.address"
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="4">
@@ -33,7 +33,7 @@
             hide-details
             outlined
             label="Telefon"
-            v-model="phone"
+            v-model="contactInformation.phone"
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="4">
@@ -41,7 +41,7 @@
             hide-details
             outlined
             label="Email"
-            v-model="email"
+            v-model="contactInformation.email"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -52,16 +52,21 @@
 <script>
 export default {
   name: "AdminContactInformation",
-  data() {
-    return {
-      address: "Nooruse 2-1, Ahja, Põlva vald",
-      phone: "12345678",
-      email: "email@email.com"
-    };
+  props: {
+    contactInformation: {
+      type: Object,
+      default() {
+        return {
+          address: "",
+          phone: "",
+          email: ""
+        };
+      }
+    }
   },
   methods: {
     saveContactDetails() {
-      console.log("contact details saved!");
+      console.log(this.contactInformation);
     }
   }
 };
