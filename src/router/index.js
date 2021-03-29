@@ -32,7 +32,15 @@ const routes = [
   {
     path: "/admin/avaleht",
     name: "AdminHomePage",
-    component: AdminHomePage
+    component: AdminHomePage,
+    beforeEnter: (to, from, next) => {
+      // eslint-disable-next-line no-constant-condition
+      if ("qwe" === "2qwe") {
+        next();
+      } else {
+        next({ name: "Login" });
+      }
+    }
   }
 ];
 
