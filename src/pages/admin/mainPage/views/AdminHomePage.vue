@@ -18,7 +18,7 @@
     </v-row>
     <v-row no-gutters class="pt-5">
       <v-col>
-        <AdminUsefulLinks></AdminUsefulLinks>
+        <AdminUsefulLinks :links="homePageData.links"></AdminUsefulLinks>
       </v-col>
     </v-row>
     <v-row no-gutters class="pt-5">

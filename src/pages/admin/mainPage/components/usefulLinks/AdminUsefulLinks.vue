@@ -91,6 +91,9 @@
 <script>
 export default {
   name: "AdminUsefulLinks",
+  props: {
+    links: Array
+  },
   data: () => ({
     dialog: false,
     dialogDelete: false,
@@ -105,7 +108,6 @@ export default {
       { text: "Link", value: "link", sortable: false },
       { text: "Muuda/Kustuta", value: "actions", sortable: false }
     ],
-    links: [],
     editedIndex: -1,
     editedItem: {
       name: "",
@@ -132,36 +134,7 @@ export default {
     }
   },
 
-  created() {
-    this.initialize();
-  },
-
   methods: {
-    initialize() {
-      this.links = [
-        {
-          name: "Meestele",
-          link: "https://www.kliinikum.ee/meestekliinik"
-        },
-        {
-          name: "Ravijuhendid",
-          link: "https://www.ravijuhend.ee"
-        },
-        {
-          name: "Peavalu",
-          link: "https://www.peavalu.ee"
-        },
-        {
-          name: "Liigesed",
-          link: "https://www.liiges.ee"
-        },
-        {
-          name: "Patsiendiportaal",
-          link: "https://www.digilugu.ee"
-        }
-      ];
-    },
-
     editItem(item) {
       this.editedIndex = this.links.indexOf(item);
       this.editedItem = Object.assign({}, item);
