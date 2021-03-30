@@ -91,6 +91,7 @@
 
 <script>
 import WorkerTimes from "@/pages/admin/mainPage/components/workers/components/WorkerTimes";
+import api from "@/repository/api";
 export default {
   name: "WorkersTable",
   components: { WorkerTimes },
@@ -119,6 +120,7 @@ export default {
     editedItem: {
       name: "",
       position: "",
+      imageUrl: "",
       receptionTimes: [
         { day: "Esmaspäev", time: "-" },
         { day: "Teisipäev", time: "-" },
@@ -137,6 +139,7 @@ export default {
     defaultItem: {
       name: "",
       position: "",
+      imageUrl: "",
       receptionTimes: [
         { day: "Esmaspäev", time: "-" },
         { day: "Teisipäev", time: "-" },
@@ -185,7 +188,9 @@ export default {
     },
 
     deleteItemConfirm() {
+      const token = localStorage.getItem("token");
       this.workers.splice(this.editedIndex, 1);
+      api.deleteWorker(this.editedItem._id, token);
       this.closeDelete();
     },
 
@@ -206,9 +211,12 @@ export default {
     },
 
     save() {
+      const token = localStorage.getItem("token");
       if (this.editedIndex > -1) {
+        api.updateWorker(this.editedItem, token);
         Object.assign(this.workers[this.editedIndex], this.editedItem);
       } else {
+        api.createWorker(this.editedItem, token);
         this.workers.push(this.editedItem);
       }
       this.close();
