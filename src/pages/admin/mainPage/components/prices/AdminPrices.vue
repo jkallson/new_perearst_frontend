@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import api from "@/repository/api";
+
 export default {
   name: "AdminPrices",
   props: {
@@ -150,7 +152,9 @@ export default {
     },
 
     deleteItemConfirm() {
+      const token = localStorage.getItem("token");
       this.prices.splice(this.editedIndex, 1);
+      api.deletePrice(this.editedItem._id, token);
       this.closeDelete();
     },
 
@@ -171,9 +175,12 @@ export default {
     },
 
     save() {
+      const token = localStorage.getItem("token");
       if (this.editedIndex > -1) {
         Object.assign(this.prices[this.editedIndex], this.editedItem);
+        api.updatePrice(this.editedItem, token);
       } else {
+        api.createPrice(this.editedItem, token);
         this.prices.push(this.editedItem);
       }
       this.close();

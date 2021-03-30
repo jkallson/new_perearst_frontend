@@ -200,5 +200,74 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+  async createPrice(priceInput, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: process.env.VUE_APP_ROOT_API + "/graphql",
+        data: {
+          query: `mutation {
+                createPrice(priceInput: {name: "${priceInput.name}", price: "${priceInput.price}", class: "${priceInput.class}"}) {
+                    name
+                    price
+                    class
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async updatePrice(priceInput, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: process.env.VUE_APP_ROOT_API + "/graphql",
+        data: {
+          query: `mutation {
+                updatePrice(priceInput: {_id: "${priceInput._id}", name: "${priceInput.name}", price: "${priceInput.price}", class: "${priceInput.class}"}) {
+                    name
+                    price
+                    class
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async deletePrice(id, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: process.env.VUE_APP_ROOT_API + "/graphql",
+        data: {
+          query: `mutation {
+                removePrice(priceID: "${id}") {
+                    name
+                    price
+                    class
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
