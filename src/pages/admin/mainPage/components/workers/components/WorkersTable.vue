@@ -120,7 +120,7 @@ export default {
     editedItem: {
       name: "",
       position: "",
-      imageUrl: "",
+      imageUrl: "qwe",
       receptionTimes: [
         { day: "Esmaspäev", time: "-" },
         { day: "Teisipäev", time: "-" },
@@ -139,7 +139,7 @@ export default {
     defaultItem: {
       name: "",
       position: "",
-      imageUrl: "",
+      imageUrl: "qwe",
       receptionTimes: [
         { day: "Esmaspäev", time: "-" },
         { day: "Teisipäev", time: "-" },
@@ -210,13 +210,14 @@ export default {
       });
     },
 
-    save() {
+    async save() {
       const token = localStorage.getItem("token");
       if (this.editedIndex > -1) {
         api.updateWorker(this.editedItem, token);
         Object.assign(this.workers[this.editedIndex], this.editedItem);
       } else {
-        api.createWorker(this.editedItem, token);
+        const response = await api.createWorker(this.editedItem, token);
+        this.editedItem._id = response.data.data.createWorker._id;
         this.workers.push(this.editedItem);
       }
       this.close();

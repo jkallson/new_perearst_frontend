@@ -116,29 +116,31 @@ export default {
       console.log(error);
     }
   },
-  async updateWorker(workerInformation, token) {
-    console.log(workerInformation.receptionTimes);
+  async updateWorker(workerInput, token) {
     try {
       return await axios({
         method: "POST",
         url: process.env.VUE_APP_ROOT_API + "/graphql",
         data: {
-          query: `mutation{
-                updateWorker(workerInput: {_id: "${workerInformation._id}", name: "${workerInformation.name}", position: "${workerInformation.position}", imageUrl: "${workerInformation.imageUrl}", mobileTimes: "${workerInformation.mobileTimes}", receptionTimes: "${workerInformation.receptionTimes}"}) {
-                    _id
-                    name
-                    position
-                    mobileTimes {
-                        day
-                        time
-                    }
-                    receptionTimes {
-                        day
-                        time
+          query: `mutation updateWorker($workerInput: WorkerInput!) {
+                    updateWorker(workerInput: $workerInput) {
+                        _id
+                        name
+                        position
+                        mobileTimes {
+                            day
+                            time
+                        }
+                        receptionTimes {
+                            day
+                            time
+                        }
                     }
                 }
-            }
-                `
+                `,
+          variables: {
+            workerInput
+          }
         },
         headers: {
           Authorization: token
@@ -148,19 +150,31 @@ export default {
       console.log(error);
     }
   },
-  async createWorker(workerInformation, token) {
+  async createWorker(workerInput, token) {
     try {
       return await axios({
         method: "POST",
         url: process.env.VUE_APP_ROOT_API + "/graphql",
         data: {
-          query: `mutation {
-                createWorker(workerInput: {name: "${workerInformation.name}", position: "${workerInformation.position}", imageUrl: "${workerInformation.imageUrl}", receptionTimes: ${workerInformation.receptionTimes}, mobileTimes: ${workerInformation.mobileTimes}}) {
-                    name
-                    position
+          query: `mutation createWorker($workerInput: WorkerInput!) {
+                    createWorker(workerInput: $workerInput) {
+                        _id
+                        name
+                        position
+                        mobileTimes {
+                            day
+                            time
+                        }
+                        receptionTimes {
+                            day
+                            time
+                        }
+                    }
                 }
-            }
-                `
+                `,
+          variables: {
+            workerInput
+          }
         },
         headers: {
           Authorization: token
