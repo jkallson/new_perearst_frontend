@@ -269,5 +269,75 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+  async createLink(linkInput, token) {
+    console.log(linkInput);
+    try {
+      return await axios({
+        method: "POST",
+        url: process.env.VUE_APP_ROOT_API + "/graphql",
+        data: {
+          query: `mutation {
+                createLink(linkInput: {link: "${linkInput.link}", name: "${linkInput.name}", orderIndex: ${linkInput.orderIndex}}) {
+                    link
+                    name
+                    orderIndex
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async updateLink(linkInput, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: process.env.VUE_APP_ROOT_API + "/graphql",
+        data: {
+          query: `mutation {
+                updateLink(linkInput: {_id: "${linkInput._id}", link: "${linkInput.link}", name: "${linkInput.name}", orderIndex: ${linkInput.orderIndex}}) {
+                    name
+                    link
+                    orderIndex
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async deleteLink(id, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: process.env.VUE_APP_ROOT_API + "/graphql",
+        data: {
+          query: `mutation {
+                deleteLink(linkID: "${id}") {
+                    link
+                    name
+                    orderIndex
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 };

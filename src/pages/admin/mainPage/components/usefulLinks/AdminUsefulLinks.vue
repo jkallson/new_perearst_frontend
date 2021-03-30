@@ -43,6 +43,12 @@
                       label="Link"
                     ></v-text-field>
                   </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="editedItem.orderIndex"
+                      label="Järjekorranumber"
+                    ></v-text-field>
+                  </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -89,6 +95,7 @@
 </template>
 
 <script>
+import api from "@/repository/api";
 export default {
   name: "AdminUsefulLinks",
   props: {
@@ -111,11 +118,13 @@ export default {
     editedIndex: -1,
     editedItem: {
       name: "",
-      link: ""
+      link: "",
+      orderIndex: 0
     },
     defaultItem: {
       name: "",
-      link: ""
+      link: "",
+      orderIndex: 0
     }
   }),
 
@@ -148,7 +157,9 @@ export default {
     },
 
     deleteItemConfirm() {
+      const token = localStorage.getItem("token");
       this.links.splice(this.editedIndex, 1);
+      api.deleteLink(this.editedItem._id, token);
       this.closeDelete();
     },
 
@@ -169,9 +180,13 @@ export default {
     },
 
     save() {
+      const token = localStorage.getItem("token");
       if (this.editedIndex > -1) {
         Object.assign(this.links[this.editedIndex], this.editedItem);
+        api.updateLink(this.editedItem, token);
       } else {
+        this.editedItem.orderIndex = this.links.length;
+        api.createLink(this.editedItem, token);
         this.links.push(this.editedItem);
       }
       this.close();
