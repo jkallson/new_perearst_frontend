@@ -56,6 +56,7 @@ function transform(requestResult) {
 }
 
 function setFooterData(contactInformation) {
+  console.log(contactInformation);
   store.commit("setContactInformation", {
     address: contactInformation.address,
     phone: contactInformation.phone,

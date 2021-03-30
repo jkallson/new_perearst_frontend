@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import api from "@/repository/api";
 export default {
   name: "AdminContactInformation",
   props: {
@@ -57,6 +58,7 @@ export default {
       type: Object,
       default() {
         return {
+          _id: "",
           address: "",
           phone: "",
           email: ""
@@ -66,7 +68,8 @@ export default {
   },
   methods: {
     saveContactDetails() {
-      console.log(this.contactInformation);
+      const token = localStorage.getItem("token");
+      api.updateContactInformation(this.contactInformation, token);
     }
   }
 };

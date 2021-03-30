@@ -21,6 +21,7 @@ export default {
                 }
               }
                 contactInformation {
+                    _id
                     address
                     phone
                     email
@@ -80,6 +81,29 @@ export default {
           query: `mutation{
                 updateAboutUsText(aboutUsTextInput: {_id: "${id}", text: "${text}"}) {
                     text
+                }
+            }
+                `
+        },
+        headers: {
+          Authorization: token
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async updateContactInformation(contactInformation, token) {
+    try {
+      return await axios({
+        method: "POST",
+        url: "http://localhost:3000/graphql",
+        data: {
+          query: `mutation{
+                updateContactInformation(contactInformationInput: {_id: "${contactInformation._id}", address: "${contactInformation.address}", phone: "${contactInformation.phone}", email: "${contactInformation.email}"}) {
+                    address
+                    phone
+                    email
                 }
             }
                 `

@@ -38,7 +38,7 @@ export const store = new Vuex.Store({
     setContactInformation(state, payload) {
       state.address = payload.address;
       state.phone = payload.phone;
-      state.email = payload.phone;
+      state.email = payload.email;
     }
   }
 });
