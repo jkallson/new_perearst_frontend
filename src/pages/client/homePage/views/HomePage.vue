@@ -27,6 +27,8 @@ import Prices from "@/pages/client/homePage/components/prices/Prices";
 import Contact from "@/pages/client/homePage/components/contact/Contact";
 import Footer from "@/components/Footer";
 import api from "@/repository/api";
+import { store } from "@/store";
+
 export default {
   name: "HomePage",
   components: { Footer, Contact, Prices, Workers, AboutUs, Header },
@@ -39,6 +41,7 @@ export default {
   async mounted() {
     this.requestResult = await api.getAllInformation();
     this.homePageData = transform(this.requestResult);
+    setFooterData(this.homePageData.contactInformation);
   }
 };
 function transform(requestResult) {
@@ -50,6 +53,14 @@ function transform(requestResult) {
     prices: requestData.prices,
     links: requestData.links
   };
+}
+
+function setFooterData(contactInformation) {
+  store.commit("setContactInformation", {
+    address: contactInformation.address,
+    phone: contactInformation.phone,
+    email: contactInformation.email
+  });
 }
 </script>
 
