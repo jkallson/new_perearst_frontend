@@ -38,7 +38,6 @@ export default {
   },
   watch: {
     aboutUs: function(newVal) {
-      console.log(newVal);
       this.aboutUsText = newVal.text;
     }
   },
