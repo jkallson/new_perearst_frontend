@@ -28,6 +28,11 @@
         ></AdminContactInformation>
       </v-col>
     </v-row>
+    <v-row no-gutters class="pt-5">
+      <v-col>
+        <AdminNotifications></AdminNotifications>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -39,9 +44,11 @@ import AdminContactInformation from "@/pages/admin/mainPage/components/contactIn
 import AdminUsefulLinks from "@/pages/admin/mainPage/components/usefulLinks/AdminUsefulLinks";
 import AdminHeader from "@/pages/admin/mainPage/components/header/AdminHeader";
 import api from "@/repository/api";
+import AdminNotifications from "@/pages/admin/mainPage/components/notifications/AdminNotifications";
 export default {
   name: "AdminHomePage",
   components: {
+    AdminNotifications,
     AdminHeader,
     AdminUsefulLinks,
     AdminContactInformation,
