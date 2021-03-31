@@ -95,7 +95,8 @@
 </template>
 
 <script>
-import api from "@/repository/api";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const LinksRepository = RepositoryFactory.get("links");
 export default {
   name: "AdminUsefulLinks",
   props: {
@@ -157,9 +158,8 @@ export default {
     },
 
     deleteItemConfirm() {
-      const token = localStorage.getItem("token");
       this.links.splice(this.editedIndex, 1);
-      api.deleteLink(this.editedItem._id, token);
+      LinksRepository.deleteLink(this.editedItem._id);
       this.closeDelete();
     },
 
@@ -180,13 +180,12 @@ export default {
     },
 
     save() {
-      const token = localStorage.getItem("token");
       if (this.editedIndex > -1) {
         Object.assign(this.links[this.editedIndex], this.editedItem);
-        api.updateLink(this.editedItem, token);
+        LinksRepository.updateLink(this.editedItem);
       } else {
         this.editedItem.orderIndex = this.links.length;
-        api.createLink(this.editedItem, token);
+        LinksRepository.createLink(this.editedItem);
         this.links.push(this.editedItem);
       }
       this.close();

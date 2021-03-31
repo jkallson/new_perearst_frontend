@@ -91,7 +91,8 @@
 
 <script>
 import WorkerTimes from "@/pages/admin/mainPage/components/workers/components/WorkerTimes";
-import api from "@/repository/api";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const WorkersRepository = RepositoryFactory.get("workers");
 export default {
   name: "WorkersTable",
   components: { WorkerTimes },
@@ -188,9 +189,8 @@ export default {
     },
 
     deleteItemConfirm() {
-      const token = localStorage.getItem("token");
       this.workers.splice(this.editedIndex, 1);
-      api.deleteWorker(this.editedItem._id, token);
+      WorkersRepository.deleteWorker(this.editedItem._id);
       this.closeDelete();
     },
 
@@ -211,12 +211,11 @@ export default {
     },
 
     async save() {
-      const token = localStorage.getItem("token");
       if (this.editedIndex > -1) {
-        api.updateWorker(this.editedItem, token);
+        await WorkersRepository.updateWorker(this.editedItem);
         Object.assign(this.workers[this.editedIndex], this.editedItem);
       } else {
-        const response = await api.createWorker(this.editedItem, token);
+        const response = await WorkersRepository.createWorker(this.editedItem);
         this.editedItem._id = response.data.data.createWorker._id;
         this.workers.push(this.editedItem);
       }

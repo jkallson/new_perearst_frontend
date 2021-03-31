@@ -47,8 +47,9 @@
 
 <script>
 import Header from "@/components/header/Header";
-import api from "@/repository/api";
 import { store } from "@/store";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const AuthRepository = RepositoryFactory.get("auth");
 
 export default {
   name: "LoginForm",
@@ -62,7 +63,7 @@ export default {
   },
   methods: {
     async login() {
-      const response = await api.login(this.username, this.password);
+      const response = await AuthRepository.login(this.username, this.password);
       this.checkLogin(response);
     },
     checkLogin(response) {

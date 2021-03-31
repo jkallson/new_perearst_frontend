@@ -26,8 +26,9 @@ import Workers from "@/pages/client/homePage/components/workers/Workers";
 import Prices from "@/pages/client/homePage/components/prices/Prices";
 import Contact from "@/pages/client/homePage/components/contact/Contact";
 import Footer from "@/components/Footer";
-import api from "@/repository/api";
 import { store } from "@/store";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const HomePageRepository = RepositoryFactory.get("homePage");
 
 export default {
   name: "HomePage",
@@ -39,7 +40,7 @@ export default {
     };
   },
   async mounted() {
-    this.requestResult = await api.getAllInformation();
+    this.requestResult = await HomePageRepository.getAllInformation();
     this.homePageData = transform(this.requestResult);
     setFooterData(this.homePageData.contactInformation);
   }

@@ -18,7 +18,8 @@
 
 <script>
 import { VueEditor } from "vue2-editor";
-import api from "@/repository/api";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const AboutUsRepository = RepositoryFactory.get("aboutUs");
 export default {
   name: "AdminAboutUs",
   components: { VueEditor },
@@ -43,11 +44,7 @@ export default {
   },
   methods: {
     saveText() {
-      api.updateAboutUsText(
-        this.aboutUs._id,
-        this.aboutUsText,
-        localStorage.token
-      );
+      AboutUsRepository.updateAboutUsText(this.aboutUs._id, this.aboutUsText);
     }
   }
 };

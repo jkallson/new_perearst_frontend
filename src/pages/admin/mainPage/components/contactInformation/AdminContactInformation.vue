@@ -50,7 +50,10 @@
 </template>
 
 <script>
-import api from "@/repository/api";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const ContactInformationRepository = RepositoryFactory.get(
+  "contactInformation"
+);
 export default {
   name: "AdminContactInformation",
   props: {
@@ -68,8 +71,9 @@ export default {
   },
   methods: {
     saveContactDetails() {
-      const token = localStorage.getItem("token");
-      api.updateContactInformation(this.contactInformation, token);
+      ContactInformationRepository.updateContactInformation(
+        this.contactInformation
+      );
     }
   }
 };

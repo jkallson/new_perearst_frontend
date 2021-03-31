@@ -43,8 +43,9 @@ import AdminPrices from "@/pages/admin/mainPage/components/prices/AdminPrices";
 import AdminContactInformation from "@/pages/admin/mainPage/components/contactInformation/AdminContactInformation";
 import AdminUsefulLinks from "@/pages/admin/mainPage/components/usefulLinks/AdminUsefulLinks";
 import AdminHeader from "@/pages/admin/mainPage/components/header/AdminHeader";
-import api from "@/repository/api";
 import AdminNotifications from "@/pages/admin/mainPage/components/notifications/AdminNotifications";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const HomePageRepository = RepositoryFactory.get("homePage");
 export default {
   name: "AdminHomePage",
   components: {
@@ -63,7 +64,7 @@ export default {
     };
   },
   async mounted() {
-    this.requestResult = await api.getAllInformation();
+    this.requestResult = await HomePageRepository.getAllInformation();
     this.homePageData = transform(this.requestResult);
   }
 };
