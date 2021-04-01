@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div class="d-flex fill-height" style="flex-direction: column">
     <Header></Header>
     <v-container fluid class="grey lighten-3">
       <SectionName name="Kodukorrast"></SectionName>
@@ -27,8 +27,13 @@
         </v-expansion-panels>
       </v-card>
     </v-container>
+    <v-container
+      fluid
+      class="fill-height grey lighten-3"
+      style="background-color: red"
+    ></v-container>
     <Footer></Footer>
-  </fragment>
+  </div>
 </template>
 
 <script>
