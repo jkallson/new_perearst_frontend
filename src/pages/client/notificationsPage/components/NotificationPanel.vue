@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div class="d-flex fill-height" style="flex-direction: column">
     <Header></Header>
     <v-container fluid class="grey lighten-3">
       <SectionName name="Teadaanded"></SectionName>
@@ -9,44 +9,50 @@
         </h3>
         <BasicToolbar></BasicToolbar>
         <v-expansion-panels accordion focusable>
-          <v-expansion-panel v-for="(item, i) in items" :key="i">
+          <v-expansion-panel
+            v-for="(notification, i) in notifications"
+            :key="i"
+          >
             <v-expansion-panel-header>
-              {{ item.name }}
+              {{ notification.name }}
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              {{ item.content }}
+            <v-expansion-panel-content
+              class="px-6"
+              v-html="notification.content"
+            >
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
       </v-container>
     </v-container>
+    <v-container
+      fluid
+      class="fill-height grey lighten-3"
+      style="background-color: red"
+    ></v-container>
     <Footer></Footer>
-  </fragment>
+  </div>
 </template>
 
 <script>
 import Header from "@/components/header/Header";
 import SectionName from "@/components/SectionName";
 import BasicToolbar from "@/components/BasicToolbar";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
 import Footer from "@/components/Footer";
+const NotificationsRepository = RepositoryFactory.get("notifications");
 
 export default {
   name: "NotificationPanel",
   components: { Footer, BasicToolbar, SectionName, Header },
   data() {
     return {
-      items: [
-        { name: "Uudis 1", content: "qwe" },
-        { name: "Uudis 2", content: "qwe" },
-        { name: "Uudis 3", content: "qwe" },
-        { name: "Uudis 4", content: "qwe" },
-        { name: "Uudis 5", content: "qwe" },
-        { name: "Uudis 6", content: "qwe" },
-        { name: "Uudis 7", content: "qwe" },
-        { name: "Uudis 8", content: "qwe" },
-        { name: "Uudis 9", content: "qwe" }
-      ]
+      notifications: []
     };
+  },
+  async created() {
+    const response = await NotificationsRepository.getNotifications();
+    this.notifications = response.data.data.news;
   }
 };
 </script>

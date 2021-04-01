@@ -2,12 +2,14 @@ import Repository from "../repository";
 
 export default {
   async getNotifications() {
-    const query = `news {
-        _id
-        name
-        content
-        date
-    }`;
+    const query = `{
+                 news {
+                      _id
+                      name
+                      content
+                      date
+                 }
+            }`;
     return await this.createRequest(query);
   },
   async createNotification(notificationInput) {
@@ -23,6 +25,7 @@ export default {
     return await this.createRequest(query);
   },
   async updateNotification(notificationInput) {
+    console.log(notificationInput);
     const query = `mutation {
                 updateNews(newsInput: {_id: "${notificationInput._id}", name: "${notificationInput.name}", content: "${notificationInput.content}", date: "${notificationInput.date}"}) {
                     _id
