@@ -1,5 +1,3 @@
-//import Repository from "@/repository/repository";
-
 import Repository from "@/repository/repository";
 
 export default {
@@ -44,6 +42,57 @@ export default {
                         time
                     }
                 }
+            }
+                        `;
+    return await this.createRequest(query);
+  },
+  async getAllAdminInformation() {
+    const query = `{
+                aboutUs {
+                    _id
+                    text
+                }
+                prices {
+                    class
+                    data {
+                        _id
+                        name
+                        class
+                        price
+                }
+              }
+                contactInformation {
+                    _id
+                    address
+                    phone
+                    email
+                }
+                links {
+                    _id
+                    link
+                    name
+                    orderIndex
+                }
+                workers {
+                    _id
+                    name
+                    position
+                    imageUrl
+                    receptionTimes {
+                        day
+                        time
+                    }
+                    mobileTimes {
+                        day
+                        time
+                    }
+                }
+                    news {
+                        _id
+                        name
+                        content
+                        date
+                    }
             }
                         `;
     return await this.createRequest(query);

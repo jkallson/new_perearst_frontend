@@ -30,7 +30,9 @@
     </v-row>
     <v-row no-gutters class="pt-5">
       <v-col>
-        <AdminNotifications></AdminNotifications>
+        <AdminNotifications
+          :notifications="homePageData.notifications"
+        ></AdminNotifications>
       </v-col>
     </v-row>
   </v-container>
@@ -64,7 +66,7 @@ export default {
     };
   },
   async mounted() {
-    this.requestResult = await HomePageRepository.getAllInformation();
+    this.requestResult = await HomePageRepository.getAllAdminInformation();
     this.homePageData = transform(this.requestResult);
   }
 };
@@ -75,7 +77,8 @@ function transform(requestResult) {
     contactInformation: requestData.contactInformation,
     workers: requestData.workers,
     prices: requestData.prices.flatMap(element => element.data),
-    links: requestData.links
+    links: requestData.links,
+    notifications: requestData.news
   };
 }
 </script>

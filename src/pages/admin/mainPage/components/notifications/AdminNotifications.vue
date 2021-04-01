@@ -24,7 +24,7 @@
       </v-dialog>
     </v-toolbar>
     <v-expansion-panels accordion>
-      <v-expansion-panel v-for="item in items" :key="item.name">
+      <v-expansion-panel v-for="item in notifications" :key="item.name">
         <v-expansion-panel-header disable-icon-rotate>
           {{ item.name }}
           <template v-slot:actions>
@@ -46,24 +46,18 @@
 <script>
 import AddNotificationModal from "@/pages/admin/mainPage/components/notifications/components/AddNotificationModal";
 import DeleteNotificationModal from "@/pages/admin/mainPage/components/notifications/components/DeleteNotificationModal";
+import { RepositoryFactory } from "@/repository/repositoryFactory";
+const NotificationsRepository = RepositoryFactory.get("notifications");
 export default {
   name: "AdminNotifications",
   components: { DeleteNotificationModal, AddNotificationModal },
+  props: {
+    notifications: Array
+  },
   data() {
     return {
       dialog: false,
       dialogDelete: false,
-      items: [
-        { name: "Uudis 1", content: "qwe" },
-        { name: "Uudis 2", content: "qwe" },
-        { name: "Uudis 3", content: "qwe" },
-        { name: "Uudis 4", content: "qwe" },
-        { name: "Uudis 5", content: "qwe" },
-        { name: "Uudis 6", content: "qwe" },
-        { name: "Uudis 7", content: "qwe" },
-        { name: "Uudis 8", content: "qwe" },
-        { name: "Uudis 9", content: "qwe" }
-      ],
       editedIndex: -1,
       editedItem: {
         name: "",
@@ -90,7 +84,7 @@ export default {
   },
   methods: {
     modifyNotification(notification) {
-      this.editedIndex = this.items.indexOf(notification);
+      this.editedIndex = this.notifications.indexOf(notification);
       this.editedItem = Object.assign({}, notification);
       this.dialog = true;
     },
@@ -102,13 +96,14 @@ export default {
       });
     },
     deleteNotification(notification) {
-      this.editedIndex = this.items.indexOf(notification);
+      this.editedIndex = this.notifications.indexOf(notification);
       this.editedItem = Object.assign({}, notification);
       this.dialogDelete = true;
     },
 
     deleteNotificationConfirm() {
-      this.items.splice(this.editedIndex, 1);
+      this.notifications.splice(this.editedIndex, 1);
+      NotificationsRepository.deleteNotification(this.editedItem._id);
       this.closeDelete();
     },
     closeDelete() {
@@ -118,11 +113,16 @@ export default {
         this.editedIndex = -1;
       });
     },
-    save() {
+    async save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.items[this.editedIndex], this.editedItem);
+        Object.assign(this.notifications[this.editedIndex], this.editedItem);
+        await NotificationsRepository.updateNotification(this.editedItem);
       } else {
-        this.items.push(this.editedItem);
+        const result = await NotificationsRepository.createNotification(
+          this.editedItem
+        );
+        this.editedItem._id = result.data.data.createNews._id;
+        this.notifications.push(this.editedItem);
       }
       this.close();
     }
