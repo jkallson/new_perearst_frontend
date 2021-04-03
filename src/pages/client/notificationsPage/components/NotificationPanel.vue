@@ -8,28 +8,10 @@
           Siit leiate viimased teadaanded Ahja perearstikabineti poolt!
         </h3>
         <BasicToolbar></BasicToolbar>
-        <v-expansion-panels accordion focusable>
-          <v-expansion-panel
-            v-for="(notification, i) in notifications"
-            :key="i"
-          >
-            <v-expansion-panel-header>
-              {{ notification.name }}
-            </v-expansion-panel-header>
-            <v-expansion-panel-content
-              class="px-6"
-              v-html="notification.content"
-            >
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
+        <BasicExpansionPanels :items="notifications"></BasicExpansionPanels>
       </v-container>
     </v-container>
-    <v-container
-      fluid
-      class="fill-height grey lighten-3"
-      style="background-color: red"
-    ></v-container>
+    <v-container fluid class="fill-height grey lighten-3"></v-container>
     <Footer></Footer>
   </div>
 </template>
@@ -40,11 +22,18 @@ import SectionName from "@/components/SectionName";
 import BasicToolbar from "@/components/BasicToolbar";
 import { RepositoryFactory } from "@/repository/repositoryFactory";
 import Footer from "@/components/Footer";
+import BasicExpansionPanels from "@/components/BasicExpansionPanels";
 const NotificationsRepository = RepositoryFactory.get("notifications");
 
 export default {
   name: "NotificationPanel",
-  components: { Footer, BasicToolbar, SectionName, Header },
+  components: {
+    BasicExpansionPanels,
+    Footer,
+    BasicToolbar,
+    SectionName,
+    Header
+  },
   data() {
     return {
       notifications: []
