@@ -6,6 +6,7 @@ import authRepository from "@/repository/repositories/authRepository";
 import aboutUsRepository from "@/repository/repositories/aboutUsRepository";
 import contactInformationRepository from "@/repository/repositories/contactInformationRepository";
 import notificationsRepository from "@/repository/repositories/notificationsRepository";
+import regulationsRepository from "@/repository/repositories/regulationsRepository";
 
 const repositories = {
   prices: pricesRepository,
@@ -15,7 +16,8 @@ const repositories = {
   auth: authRepository,
   aboutUs: aboutUsRepository,
   contactInformation: contactInformationRepository,
-  notifications: notificationsRepository
+  notifications: notificationsRepository,
+  regulations: regulationsRepository
 };
 
 export const RepositoryFactory = {

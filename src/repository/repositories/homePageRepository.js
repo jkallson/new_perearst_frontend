@@ -87,12 +87,17 @@ export default {
                         time
                     }
                 }
-                    news {
-                        _id
-                        name
-                        content
-                        date
-                    }
+                news {
+                    _id
+                    name
+                    content
+                    date
+                }
+                regulations {
+                  _id
+                  name
+                  content
+             }
             }
                         `;
     return await this.createRequest(query);

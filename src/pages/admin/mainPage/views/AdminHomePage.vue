@@ -37,7 +37,9 @@
     </v-row>
     <v-row no-gutters class="pt-5">
       <v-col>
-        <AdminRegulations></AdminRegulations>
+        <AdminRegulations
+          :regulations="homePageData.regulations"
+        ></AdminRegulations>
       </v-col>
     </v-row>
   </v-container>
@@ -85,7 +87,8 @@ function transform(requestResult) {
     workers: requestData.workers,
     prices: requestData.prices.flatMap(element => element.data),
     links: requestData.links,
-    notifications: requestData.news
+    notifications: requestData.news,
+    regulations: requestData.regulations
   };
 }
 </script>

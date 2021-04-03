@@ -1,47 +1,43 @@
 import Repository from "../repository";
 
 export default {
-  async getNotifications() {
+  async getRegulations() {
     const query = `{
-                 news {
+                 regulations {
                       _id
                       name
                       content
-                      date
                  }
             }`;
     return await this.createRequest(query);
   },
-  async createNotification(notificationInput) {
+  async createRegulation(regulationsInput) {
     const query = `mutation {
-                createNews(newsInput: {name: "${notificationInput.name}", content: "${notificationInput.content}", date: "${notificationInput.date}"}) {
+                createRegulation(regulationsInput: {name: "${regulationsInput.name}", content: "${regulationsInput.content}"}) {
                     _id
                     name
                     content
-                    date
                 }
             }
                 `;
     return await this.createRequest(query);
   },
-  async updateNotification(notificationInput) {
+  async updateRegulation(regulationsInput) {
     const query = `mutation {
-                updateNews(newsInput: {_id: "${notificationInput._id}", name: "${notificationInput.name}", content: "${notificationInput.content}", date: "${notificationInput.date}"}) {
+                updateRegulation(regulationsInput: {_id: "${regulationsInput._id}", name: "${regulationsInput.name}", content: "${regulationsInput.content}"}) {
                     _id
                     name
                     content
-                    date
                 }
             }
                 `;
     return await this.createRequest(query);
   },
-  async deleteNotification(id) {
+  async deleteRegulation(id) {
     const query = `mutation {
-                deleteNews(newsID: "${id}") {
+                deleteRegulation(regulationID: "${id}") {
                     name
                     content
-                    date
                 }
             }
                 `;
