@@ -173,12 +173,13 @@ export default {
       });
     },
 
-    save() {
+    async save() {
       if (this.editedIndex > -1) {
         Object.assign(this.prices[this.editedIndex], this.editedItem);
-        PricesRepository.updatePrice(this.editedItem);
+        await PricesRepository.updatePrice(this.editedItem);
       } else {
-        PricesRepository.createPrice(this.editedItem);
+        const response = await PricesRepository.createPrice(this.editedItem);
+        this.editedItem._id = response.data.data.createPrice._id;
         this.prices.push(this.editedItem);
       }
       this.close();

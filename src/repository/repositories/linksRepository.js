@@ -4,6 +4,7 @@ export default {
   async createLink(linkInput) {
     const query = `mutation {
                 createLink(linkInput: {link: "${linkInput.link}", name: "${linkInput.name}", orderIndex: ${linkInput.orderIndex}}) {
+                    _id
                     link
                     name
                     orderIndex

@@ -4,6 +4,7 @@ export default {
   async createPrice(priceInput) {
     const query = `mutation {
                 createPrice(priceInput: {name: "${priceInput.name}", price: "${priceInput.price}", class: "${priceInput.class}"}) {
+                    _id
                     name
                     price
                     class
