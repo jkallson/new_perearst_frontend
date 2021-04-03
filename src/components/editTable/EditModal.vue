@@ -11,7 +11,7 @@
               v-model="editedItem.name"
               outlined
               hide-details
-              label="Uudise pealkiri"
+              label="Pealkiri"
             ></v-text-field>
           </v-col>
           <v-col cols="12">
@@ -36,7 +36,7 @@
 <script>
 import { VueEditor } from "vue2-editor";
 export default {
-  name: "AddNotificationModal",
+  name: "EditModal",
   components: { VueEditor },
   props: {
     formTitle: String,

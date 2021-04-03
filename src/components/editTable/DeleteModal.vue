@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title class="headline">
-      Kas soovite tõesti kustutada uudist?
+      Kas soovite tõesti kustutada?
     </v-card-title>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "DeleteNotificationModal",
+  name: "DeleteModal",
   methods: {
     closeDelete() {
       this.$emit("closeDelete");

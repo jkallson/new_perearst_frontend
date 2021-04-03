@@ -35,6 +35,11 @@
         ></AdminNotifications>
       </v-col>
     </v-row>
+    <v-row no-gutters class="pt-5">
+      <v-col>
+        <AdminRegulations></AdminRegulations>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -47,10 +52,12 @@ import AdminUsefulLinks from "@/pages/admin/mainPage/components/usefulLinks/Admi
 import AdminHeader from "@/pages/admin/mainPage/components/header/AdminHeader";
 import AdminNotifications from "@/pages/admin/mainPage/components/notifications/AdminNotifications";
 import { RepositoryFactory } from "@/repository/repositoryFactory";
+import AdminRegulations from "@/pages/admin/mainPage/components/regulations/AdminRegulations";
 const HomePageRepository = RepositoryFactory.get("homePage");
 export default {
   name: "AdminHomePage",
   components: {
+    AdminRegulations,
     AdminNotifications,
     AdminHeader,
     AdminUsefulLinks,
