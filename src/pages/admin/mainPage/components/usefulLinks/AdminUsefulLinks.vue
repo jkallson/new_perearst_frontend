@@ -25,7 +25,11 @@
       <v-toolbar flat color="primary">
         <v-toolbar-title class="white--text">LINGID</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn class="mr-2" @click="saveLinksOrder">Salvesta järjestus</v-btn>
+        <v-btn large icon class="mr-2" @click="saveLinksOrder">
+          <v-icon color="white">
+            mdi-content-save-outline
+          </v-icon>
+        </v-btn>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on">
