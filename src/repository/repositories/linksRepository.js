@@ -24,6 +24,19 @@ export default {
                 `;
     return await this.createRequest(query);
   },
+  async updateLinkOrder(linkInput) {
+    const query = `mutation updateLinkOrder($linkInput: [LinkInput!]!) {
+                    updateLinkOrder(linkInput: $linkInput) {
+                        name
+                        link
+                        orderIndex
+                    }
+                }`;
+    const variables = {
+      linkInput
+    };
+    return await this.createRequest(query, variables);
+  },
   async deleteLink(id) {
     const query = `mutation {
                 deleteLink(linkID: "${id}") {
@@ -35,12 +48,13 @@ export default {
                 `;
     return await this.createRequest(query);
   },
-  async createRequest(query) {
+  async createRequest(query, variables) {
     try {
       return await Repository.post(
         null,
         {
-          query: query
+          query: query,
+          variables: variables
         },
         {
           headers: {

@@ -7,10 +7,17 @@
     hide-default-footer
   >
     <template v-slot:item.order="{ item }">
-      <v-icon small @click="moveItem(item)">
+      <v-icon
+        small
+        @click="moveItem(item, 'up')"
+        :disabled="checkIfDisabled(item, 'up')"
+      >
         mdi-arrow-up-bold-circle-outline
       </v-icon>
-      <v-icon small @click="moveItem(item)"
+      <v-icon
+        small
+        @click="moveItem(item, 'down')"
+        :disabled="checkIfDisabled(item, 'down')"
         >mdi-arrow-down-bold-circle-outline
       </v-icon>
     </template>
@@ -18,6 +25,7 @@
       <v-toolbar flat color="primary">
         <v-toolbar-title class="white--text">LINGID</v-toolbar-title>
         <v-spacer></v-spacer>
+        <v-btn class="mr-2" @click="saveLinksOrder">Salvesta järjestus</v-btn>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on">
@@ -41,12 +49,6 @@
                     <v-text-field
                       v-model="editedItem.link"
                       label="Link"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field
-                      v-model="editedItem.orderIndex"
-                      label="Järjekorranumber"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -95,6 +97,7 @@
 </template>
 
 <script>
+/* eslint-disable prettier/prettier */
 import { RepositoryFactory } from "@/repository/repositoryFactory";
 const LinksRepository = RepositoryFactory.get("links");
 export default {
@@ -145,6 +148,14 @@ export default {
   },
 
   methods: {
+    checkIfDisabled(link, direction) {
+      const linkIndex = this.links.indexOf(link);
+      if (direction === "up") {
+        return linkIndex === 0;
+      } else {
+        return linkIndex === this.links.length - 1;
+      }
+    },
     editItem(item) {
       this.editedIndex = this.links.indexOf(item);
       this.editedItem = Object.assign({}, item);
@@ -160,9 +171,15 @@ export default {
     deleteItemConfirm() {
       this.links.splice(this.editedIndex, 1);
       LinksRepository.deleteLink(this.editedItem._id);
+      this.rewriteOrderIndexes()
+      LinksRepository.updateLinkOrder(this.links)
       this.closeDelete();
     },
-
+    rewriteOrderIndexes() {
+      this.links.map((element, index) => {
+        return element.orderIndex = index
+      })
+    },
     close() {
       this.dialog = false;
       this.$nextTick(() => {
@@ -178,7 +195,6 @@ export default {
         this.editedIndex = -1;
       });
     },
-
     async save() {
       if (this.editedIndex > -1) {
         Object.assign(this.links[this.editedIndex], this.editedItem);
@@ -191,8 +207,15 @@ export default {
       }
       this.close();
     },
-    moveItem(item) {
-      console.log(item);
+    moveItem(item, direction) {
+      const linkIndex = this.links.indexOf(item);
+      const influencedLinkIndex = direction === 'up' ? linkIndex - 1 : linkIndex + 1
+      this.links.splice(linkIndex, 0, this.links.splice(influencedLinkIndex, 1)[0]);
+      this.links[linkIndex].orderIndex = linkIndex;
+      this.links[influencedLinkIndex].orderIndex = influencedLinkIndex;
+    },
+    async saveLinksOrder() {
+      await LinksRepository.updateLinkOrder(this.links)
     }
   }
 };
