@@ -33,9 +33,10 @@ export default {
           {
             text: "Teenus",
             align: "start",
-            value: "name"
+            value: "name",
+            sortable: false
           },
-          { text: "Hind", value: "price", align: "end" }
+          { text: "Hind", value: "price", align: "end", sortable: false }
         ]
       }
     };

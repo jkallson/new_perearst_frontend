@@ -21,4 +21,7 @@ export default {
     rgba(238, 203, 171, 1) 100%
   );
 }
+body {
+  overflow: hidden;
+}
 </style>
