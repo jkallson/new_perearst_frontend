@@ -1,6 +1,5 @@
 <template>
   <v-container fluid fill-height class="background">
-    <Header :show-below-header="false"></Header>
     <v-row no-gutters>
       <v-spacer></v-spacer>
       <v-col cols="auto">
@@ -46,14 +45,12 @@
 </template>
 
 <script>
-import Header from "@/components/header/Header";
 import { store } from "@/store";
 import { RepositoryFactory } from "@/repository/repositoryFactory";
 const AuthRepository = RepositoryFactory.get("auth");
 
 export default {
   name: "LoginForm",
-  components: { Header },
   data() {
     return {
       username: "",
