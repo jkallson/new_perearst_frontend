@@ -3,6 +3,7 @@
     :headers="headers"
     :items="links"
     class="elevation-1"
+    :items-per-page="links.length"
     style="word-break: break-all"
     hide-default-footer
   >

@@ -9,6 +9,11 @@ export default {
                       name
                       content
                  }
+                 links {
+                      _id
+                      name
+                      link
+                 }
             }`;
     return await this.createRequest(query);
   },
