@@ -19,14 +19,26 @@ export default {
     regulations: Array
   },
   methods: {
-    createRegulation(regulation) {
-      RegulationsRepository.createRegulation(regulation);
+    async createRegulation(regulation) {
+      const response = await RegulationsRepository.createRegulation(regulation);
+      this.notify(response, "Kodukorra info edukalt lisatud!");
     },
-    updateRegulation(regulation) {
-      RegulationsRepository.updateRegulation(regulation);
+    async updateRegulation(regulation) {
+      const response = await RegulationsRepository.updateRegulation(regulation);
+      this.notify(response, "Kodukorra info edukalt uuendatud!");
     },
-    deleteRegulation(regulation) {
-      RegulationsRepository.deleteRegulation(regulation);
+    async deleteRegulation(regulation) {
+      const response = await RegulationsRepository.deleteRegulation(regulation);
+      this.notify(response, "Kodukorra info edukalt kustutatud!");
+    },
+    notify(response, text) {
+      if (response && response.status === 200 && response.statusText === "OK") {
+        this.$notify({
+          type: "success",
+          title: "Korras",
+          text: text
+        });
+      }
     }
   }
 };
