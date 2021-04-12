@@ -25,11 +25,21 @@
       <v-toolbar flat color="primary">
         <v-toolbar-title class="white--text">LINGID</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn large icon class="mr-2" @click="saveLinksOrder">
-          <v-icon color="white">
-            mdi-content-save-outline
-          </v-icon>
-        </v-btn>
+        <v-tooltip left>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              large
+              v-bind="attrs"
+              v-on="on"
+              class="mr-2"
+              @click="saveLinksOrder"
+            >
+              <v-icon color="white">mdi-content-save-outline</v-icon>
+            </v-btn>
+          </template>
+          <span>Salvesta linkide järjestus</span>
+        </v-tooltip>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on">
@@ -175,6 +185,7 @@ export default {
     deleteItemConfirm() {
       this.links.splice(this.editedIndex, 1);
       LinksRepository.deleteLink(this.editedItem._id);
+      this.notify("Link edukalt eemaldatud!")
       this.rewriteOrderIndexes()
       LinksRepository.updateLinkOrder(this.links)
       this.closeDelete();
@@ -201,13 +212,19 @@ export default {
     },
     async save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.links[this.editedIndex], this.editedItem);
-        await LinksRepository.updateLink(this.editedItem);
+        const response = await LinksRepository.updateLink(this.editedItem);
+        if (response && response.status === 200 && response.statusText === "OK") {
+          this.notify("Link edukalt muudetud!")
+          Object.assign(this.links[this.editedIndex], this.editedItem);
+        }
       } else {
         this.editedItem.orderIndex = this.links.length;
         const response = await LinksRepository.createLink(this.editedItem);
-        this.editedItem._id = response.data.data.createLink._id;
-        this.links.push(this.editedItem);
+        if (response && response.status === 200 && response.statusText === "OK") {
+          this.notify("Link edukalt lisatud!")
+          this.editedItem._id = response.data.data.createLink._id;
+          this.links.push(this.editedItem);
+        }
       }
       this.close();
     },
@@ -219,7 +236,17 @@ export default {
       this.links[influencedLinkIndex].orderIndex = influencedLinkIndex;
     },
     async saveLinksOrder() {
-      await LinksRepository.updateLinkOrder(this.links)
+      const response = await LinksRepository.updateLinkOrder(this.links)
+      if (response && response.status === 200 && response.statusText === "OK") {
+        this.notify("Linkide järjestus edukalt salvestatud!")
+      }
+    },
+    notify(text) {
+      this.$notify({
+        type: "success",
+        title: "Korras",
+        text: text
+      })
     }
   }
 };

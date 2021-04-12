@@ -192,11 +192,7 @@ export default {
     deleteItemConfirm() {
       this.workers.splice(this.editedIndex, 1);
       WorkersRepository.deleteWorker(this.editedItem._id);
-      this.$notify({
-        type: "success",
-        title: "Korras",
-        text: "Töötaja edukalt kustutatud!"
-      });
+      this.notify("Töötaja edukalt kustutatud!")
       this.closeDelete();
     },
 
@@ -220,26 +216,25 @@ export default {
       if (this.editedIndex > -1) {
         const response = await WorkersRepository.updateWorker(this.editedItem);
         if (response && response.status === 200 && response.statusText === "OK") {
-          this.$notify({
-            type: "success",
-            title: "Korras",
-            text: "Töötaja informatsioon edukalt muudetud!"
-          });
+          this.notify("Töötaja informatsioon edukalt muudetud!")
           Object.assign(this.workers[this.editedIndex], this.editedItem);
         }
       } else {
         const response = await WorkersRepository.createWorker(this.editedItem);
         if (response && response.status === 200 && response.statusText === "OK") {
-          this.$notify({
-            type: "success",
-            title: "Korras",
-            text: "Töötaja edukalt lisatud!"
-          });
+          this.notify("Töötaja edukalt lisatud!")
           this.editedItem._id = response.data.data.createWorker._id;
           this.workers.push(this.editedItem);
         }
       }
       this.close();
+    },
+    notify(text) {
+      this.$notify({
+        type: "success",
+        title: "Korras",
+        text: text
+      })
     }
   }
 };
