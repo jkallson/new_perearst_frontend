@@ -1,5 +1,5 @@
 import Repository from "@/repository/repository";
-
+import Vue from "vue";
 export default {
   async login(username, password) {
     const query = `{
@@ -16,7 +16,11 @@ export default {
         query: query
       });
     } catch (error) {
-      console.log(error);
+      Vue.notify({
+        type: "error",
+        title: "Sisselogimine ebaõnnestus",
+        text: "Vale kasutajanimi ja/või parool!"
+      });
     }
   }
 };

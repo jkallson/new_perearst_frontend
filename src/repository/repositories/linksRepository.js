@@ -1,4 +1,5 @@
 import Repository from "../repository";
+import Vue from "vue";
 
 export default {
   async createLink(linkInput) {
@@ -63,7 +64,11 @@ export default {
         }
       );
     } catch (error) {
-      console.log(error);
+      Vue.notify({
+        type: "error",
+        title: "Midagi läks valesti",
+        text: error
+      });
     }
   }
 };

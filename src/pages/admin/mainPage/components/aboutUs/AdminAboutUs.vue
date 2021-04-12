@@ -44,7 +44,19 @@ export default {
   },
   methods: {
     saveText() {
-      AboutUsRepository.updateAboutUsText(this.aboutUs._id, this.aboutUsText);
+      AboutUsRepository.updateAboutUsText(
+        this.aboutUs._id,
+        this.aboutUsText
+      ).then(r => {
+        console.log(r);
+        if (r.status === 200 && r.statusText === "OK") {
+          this.$notify({
+            type: "success",
+            title: "Korras",
+            text: "Meist tekst on edukalt muudetud!"
+          });
+        }
+      });
     }
   }
 };

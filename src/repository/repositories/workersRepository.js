@@ -1,4 +1,5 @@
 import Repository from "@/repository/repository";
+import Vue from "vue";
 
 export default {
   async createWorker(workerInput) {
@@ -79,7 +80,11 @@ export default {
         }
       );
     } catch (error) {
-      console.log(error);
+      Vue.notify({
+        type: "error",
+        title: "Midagi läks valesti",
+        text: error
+      });
     }
   }
 };

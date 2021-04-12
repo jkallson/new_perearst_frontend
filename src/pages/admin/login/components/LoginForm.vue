@@ -67,8 +67,16 @@ export default {
       if (response && response.status === 200 && response.statusText === "OK") {
         localStorage.token = response.data.data.login.token;
         store.commit("validLogin");
+        this.notify("success", "Korras", "Edukalt sisse logitud!");
         this.$router.push("/admin/avaleht");
       }
+    },
+    notify(type, title, text) {
+      this.$notify({
+        type: type,
+        title: title,
+        text: text
+      });
     }
   }
 };

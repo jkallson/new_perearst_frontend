@@ -154,6 +154,11 @@ export default {
     deleteItemConfirm() {
       this.prices.splice(this.editedIndex, 1);
       PricesRepository.deletePrice(this.editedItem._id);
+      this.$notify({
+        type: "success",
+        title: "Korras",
+        text: "Hind edukalt kustutatud!"
+      });
       this.closeDelete();
     },
 
@@ -175,14 +180,30 @@ export default {
 
     async save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.prices[this.editedIndex], this.editedItem);
-        await PricesRepository.updatePrice(this.editedItem);
+        await PricesRepository.updatePrice(this.editedItem).then(r => {
+          if (this.validateResponse(r, "Hind edukalt uuendatud!")) {
+            Object.assign(this.prices[this.editedIndex], this.editedItem);
+          }
+        });
       } else {
         const response = await PricesRepository.createPrice(this.editedItem);
-        this.editedItem._id = response.data.data.createPrice._id;
-        this.prices.push(this.editedItem);
+        if (this.validateResponse(response, "Hind edukalt lisatud!")) {
+          this.editedItem._id = response.data.data.createPrice._id;
+          this.prices.push(this.editedItem);
+        }
       }
       this.close();
+    },
+    validateResponse(response, text) {
+      if (response && response.status === 200 && response.statusText === "OK") {
+        this.$notify({
+          type: "success",
+          title: "Korras",
+          text: text
+        });
+        return true;
+      }
+      return false;
     }
   }
 };

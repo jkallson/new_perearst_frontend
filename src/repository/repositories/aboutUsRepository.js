@@ -1,22 +1,32 @@
 import Repository from "@/repository/repository";
+import Vue from "vue";
 
 export default {
   async updateAboutUsText(id, text) {
-    const query = `mutation{
-                updateAboutUsText(aboutUsTextInput: {_id: "${id}", text: "${text}"}) {
-                    text
-                }
-            }
+    const aboutUsTextInput = {
+      _id: id,
+      text: text
+    };
+    const query = `
+                  mutation updateAboutUsText($aboutUsTextInput: AboutUsTextInput!) {
+                      updateAboutUsText(aboutUsTextInput: $aboutUsTextInput) {
+                          text
+                      }
+                  }
                 `;
-    return await this.createRequest(query);
+    const variables = {
+      aboutUsTextInput
+    };
+    return await this.createRequest(query, variables);
   },
 
-  async createRequest(query) {
+  async createRequest(query, variables) {
     try {
       return await Repository.post(
         null,
         {
-          query: query
+          query: query,
+          variables: variables
         },
         {
           headers: {
@@ -25,7 +35,11 @@ export default {
         }
       );
     } catch (error) {
-      console.log(error);
+      Vue.notify({
+        type: "error",
+        title: "Midagi läks valesti",
+        text: error
+      });
     }
   }
 };
