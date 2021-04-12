@@ -9,6 +9,7 @@
 </template>
 
 <script>
+/* eslint-disable prettier/prettier */
 import { RepositoryFactory } from "@/repository/repositoryFactory";
 import EditTable from "@/components/editTable/EditTable";
 const NotificationsRepository = RepositoryFactory.get("notifications");
@@ -19,16 +20,19 @@ export default {
     notifications: Array
   },
   methods: {
-    createNotification(notification) {
+    async createNotification(notification) {
       notification.date = this.createDate();
-      NotificationsRepository.createNotification(notification);
+      const response = await NotificationsRepository.createNotification(notification);
+      this.notify(response, "Uudis edukalt lisatud!");
     },
-    updateNotification(notification) {
+    async updateNotification(notification) {
       notification.date = this.createDate();
-      NotificationsRepository.updateNotification(notification);
+      const response = await NotificationsRepository.updateNotification(notification);
+      this.notify(response, "Uudis edukalt uuendatud!");
     },
-    deleteNotification(notificationId) {
-      NotificationsRepository.deleteNotification(notificationId);
+    async deleteNotification(notificationId) {
+      const response = await NotificationsRepository.deleteNotification(notificationId);
+      this.notify(response, "Uudis edukalt kustutatud!");
     },
     createDate() {
       let today = new Date();
@@ -37,6 +41,15 @@ export default {
       let yyyy = today.getFullYear();
 
       return dd + "/" + mm + "/" + yyyy;
+    },
+    notify(response, text) {
+      if (response && !response.data.errors) {
+        this.$notify({
+          type: "success",
+          title: "Korras",
+          text: text
+        });
+      }
     }
   }
 };

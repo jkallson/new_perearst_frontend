@@ -32,7 +32,7 @@ export default {
       this.notify(response, "Kodukorra info edukalt kustutatud!");
     },
     notify(response, text) {
-      if (response && response.status === 200 && response.statusText === "OK") {
+      if (response && !response.data.errors) {
         this.$notify({
           type: "success",
           title: "Korras",
