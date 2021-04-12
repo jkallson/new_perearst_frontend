@@ -8,7 +8,10 @@
           Siit leiate viimased teadaanded Ahja perearstikabineti poolt!
         </h3>
         <BasicToolbar></BasicToolbar>
-        <BasicExpansionPanels :items="notifications"></BasicExpansionPanels>
+        <BasicExpansionPanels
+          type="notification"
+          :items="notifications"
+        ></BasicExpansionPanels>
       </v-container>
     </v-container>
     <v-container fluid class="fill-height grey lighten-3"></v-container>

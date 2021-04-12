@@ -2,7 +2,12 @@
   <v-expansion-panels accordion focusable>
     <v-expansion-panel v-for="(item, i) in items" :key="i">
       <v-expansion-panel-header>
-        {{ item.name }}
+        <div>
+          {{ item.name }}
+        </div>
+        <div class="text-end pr-3" v-if="type === 'notification'">
+          {{ item.date }}
+        </div>
       </v-expansion-panel-header>
       <v-expansion-panel-content
         class="px-6"
@@ -16,7 +21,11 @@
 export default {
   name: "BasicExpansionPanels",
   props: {
-    items: Array
+    items: Array,
+    type: {
+      type: String,
+      default: "regulation"
+    }
   }
 };
 </script>
