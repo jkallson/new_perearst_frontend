@@ -70,10 +70,18 @@ export default {
     }
   },
   methods: {
-    saveContactDetails() {
-      ContactInformationRepository.updateContactInformation(
+    async saveContactDetails() {
+      const response = await ContactInformationRepository.updateContactInformation(
         this.contactInformation
       );
+
+      if (response && response.status === 200 && response.statusText === "OK") {
+        this.$notify({
+          type: "success",
+          title: "Korras",
+          text: "Kontaktandmete uuendamine õnnestus!"
+        });
+      }
     }
   }
 };
