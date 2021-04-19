@@ -48,7 +48,6 @@ export default {
         this.aboutUs._id,
         this.aboutUsText
       ).then(r => {
-        console.log(r);
         if (r.status === 200 && r.statusText === "OK") {
           this.$notify({
             type: "success",

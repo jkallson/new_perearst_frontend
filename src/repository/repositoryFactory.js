@@ -7,6 +7,7 @@ import aboutUsRepository from "@/repository/repositories/aboutUsRepository";
 import contactInformationRepository from "@/repository/repositories/contactInformationRepository";
 import notificationsRepository from "@/repository/repositories/notificationsRepository";
 import regulationsRepository from "@/repository/repositories/regulationsRepository";
+import emailRepository from "@/repository/repositories/emailRepository";
 
 const repositories = {
   prices: pricesRepository,
@@ -17,7 +18,8 @@ const repositories = {
   aboutUs: aboutUsRepository,
   contactInformation: contactInformationRepository,
   notifications: notificationsRepository,
-  regulations: regulationsRepository
+  regulations: regulationsRepository,
+  email: emailRepository
 };
 
 export const RepositoryFactory = {
