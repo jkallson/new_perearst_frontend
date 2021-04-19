@@ -1,7 +1,7 @@
 <template>
   <v-card class="text-center">
     <v-avatar size="175" class="mt-2" rounded>
-      <v-img src="https://bit.ly/2Nl2ufe"></v-img>
+      <v-img src="@/assets/defaultProfilePicture.jpg"></v-img>
     </v-avatar>
     <v-card-text>
       <h2 class="font-weight-bold">{{ worker.name }}</h2>
