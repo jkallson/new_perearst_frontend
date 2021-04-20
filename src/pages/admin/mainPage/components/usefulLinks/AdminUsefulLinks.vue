@@ -118,7 +118,12 @@ const LinksRepository = RepositoryFactory.get("links");
 export default {
   name: "AdminUsefulLinks",
   props: {
-    links: Array
+    links: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
   },
   data: () => ({
     dialog: false,

@@ -3,6 +3,7 @@
     :headers="headers"
     :items="prices"
     hide-default-footer
+    :items-per-page="prices.length"
     class="elevation-1"
   >
     <template v-slot:top>
