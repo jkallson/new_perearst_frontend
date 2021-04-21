@@ -9,10 +9,9 @@
           {{ item.date }}
         </div>
       </v-expansion-panel-header>
-      <v-expansion-panel-content
-        class="px-6"
-        v-html="item.content"
-      ></v-expansion-panel-content>
+      <v-expansion-panel-content>
+        <div v-html="item.content"></div>
+      </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
 </template>
