@@ -1,5 +1,6 @@
 <template>
   <iframe
+    title="Ahja perearstikabineti asukoht"
     class="md-card"
     :src="location"
     style="border:0; min-height: 400px; margin-top: 15px; width: 100%"
