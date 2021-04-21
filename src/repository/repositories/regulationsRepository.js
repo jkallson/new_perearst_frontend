@@ -18,26 +18,30 @@ export default {
     return await this.createRequest(query);
   },
   async createRegulation(regulationsInput) {
-    const query = `mutation {
-                createRegulation(regulationsInput: {name: "${regulationsInput.name}", content: "${regulationsInput.content}"}) {
-                    _id
-                    name
-                    content
-                }
-            }
-                `;
-    return await this.createRequest(query);
+    const query = ` mutation createRegulation($regulationsInput: RegulationsInput!) {
+                        createRegulation(regulationsInput: $regulationsInput) {
+                            _id
+                            name
+                            content
+                        }
+                    }`;
+    const variables = {
+      regulationsInput
+    };
+    return await this.createRequest(query, variables);
   },
   async updateRegulation(regulationsInput) {
-    const query = `mutation {
-                updateRegulation(regulationsInput: {_id: "${regulationsInput._id}", name: "${regulationsInput.name}", content: "${regulationsInput.content}"}) {
-                    _id
-                    name
-                    content
-                }
-            }
-                `;
-    return await this.createRequest(query);
+    const query = ` mutation updateRegulation($regulationsInput: RegulationsInput!) {
+                        updateRegulation(regulationsInput: $regulationsInput) {
+                            _id
+                            name
+                            content
+                        }
+                    }`;
+    const variables = {
+      regulationsInput
+    };
+    return await this.createRequest(query, variables);
   },
   async deleteRegulation(id) {
     const query = `mutation {
@@ -49,12 +53,13 @@ export default {
                 `;
     return await this.createRequest(query);
   },
-  async createRequest(query) {
+  async createRequest(query, variables) {
     try {
       return await Repository.post(
         null,
         {
-          query: query
+          query: query,
+          variables: variables
         },
         {
           headers: {
