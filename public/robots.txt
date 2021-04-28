@@ -1,6 +1,7 @@
 # Group 1
 User-agent: *
-Allow: /
-Disallow: /src/repository/
+Allow: /admin/avaleht
+Disallow: /src/
+Disallow: /admin/
 
 Sitemap: https://ahjaperearst.ee/sitemap.xml
