@@ -1,0 +1,6 @@
+# Group 1
+User-agent: *
+Allow: /
+Disallow: /src/repository/
+
+Sitemap: https://ahjaperearst.ee/sitemap.xml
