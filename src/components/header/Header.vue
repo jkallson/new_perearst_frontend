@@ -52,7 +52,7 @@ export default {
       } else {
         this.$router
           .push("/")
-          .then(() => setTimeout(() => this.$vuetify.goTo(scrollingPos), 1));
+          .then(() => setTimeout(() => this.$vuetify.goTo(scrollingPos), 250));
       }
       this.showMenu = false;
     }
