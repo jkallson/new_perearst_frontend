@@ -89,11 +89,6 @@ export default {
   },
   methods: {
     async sendEmail() {
-      if (this.$refs.form.validate()) {
-        console.log("norm");
-      } else {
-        console.log("ei ole norm");
-      }
       const emailBody = {
         subject: this.subject,
         replyTo: this.email,
