@@ -1,6 +1,8 @@
 <template>
   <fragment>
-    <h1 class="display-2 font-weight-bold mb-3 text-md-left primary--text">
+    <h1
+      class="display-2 font-weight-bold mb-3 text-md-left primary--text text-h4 text-md-h3"
+    >
       KONTAKT
     </h1>
     <h2 class="text-md-left mb-3">
