@@ -26,7 +26,8 @@ export default {
       Vue.notify({
         type: "error",
         title: "Midagi läks valesti",
-        text: error
+        text:
+          "Emaili ei õnnestunud saata. Palun saatke email manuaalselt aadressile ahjaperearst@gmail.com"
       });
     }
   }
