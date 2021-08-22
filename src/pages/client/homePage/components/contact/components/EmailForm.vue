@@ -1,17 +1,7 @@
 <template>
   <v-form ref="form" v-model="valid">
     <v-row class="pt-2">
-      <v-col cols="12" md="6">
-        <v-text-field
-          filled
-          v-model="fullName"
-          label="Nimi"
-          outlined
-          required
-          hide-details
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12">
         <v-text-field
           filled
           v-model="email"
@@ -69,7 +59,6 @@ export default {
   data() {
     return {
       valid: true,
-      fullName: "",
       email: "",
       subject: "",
       emailText: "",
