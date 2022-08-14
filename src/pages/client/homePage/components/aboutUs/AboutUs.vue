@@ -8,12 +8,12 @@
       <v-row class="px-5">
         <v-col cols="12" md="6">
           <v-card>
-            <v-img max-height="500" src="@/assets/room1.jpeg"></v-img>
+            <v-img max-height="500" src="@/assets/uus_avaleht_1.jpeg"></v-img>
           </v-card>
         </v-col>
         <v-col cols="12" md="6">
           <v-card>
-            <v-img max-height="500" src="@/assets/room2.jpeg"></v-img>
+            <v-img max-height="500" src="@/assets/uus_avaleht_2.jpeg"></v-img>
           </v-card>
         </v-col>
       </v-row>
