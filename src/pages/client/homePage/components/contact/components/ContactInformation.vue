@@ -14,15 +14,11 @@
     </h2>
     <h3 class="text-md-left">Telefon</h3>
     <h4 class="text-md-left mb-2 secondary--text">
-      {{ contactInformation.phone }}
-    </h4>
-    <h3 class="text-md-left">Email</h3>
-    <h4 class="text-md-left mb-2 secondary--text">
-      {{ contactInformation.email }}
+      7921476
     </h4>
     <h3 class="text-md-left">Aadress</h3>
     <h4 class="text-md-left mb-2 secondary--text">
-      {{ contactInformation.address }}
+      Illimari 6, Ahja, Põlva vald 63710
     </h4>
   </fragment>
 </template>
