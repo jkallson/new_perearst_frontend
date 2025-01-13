@@ -9,7 +9,13 @@
           </v-col>
           <v-col cols="12" sm="6">
             <v-icon color="white">mdi-phone</v-icon>
-            <h5>7921476</h5>
+            <h5>
+              <a
+                style="color: white !important; text-decoration: none"
+                href="tel:7921476"
+                >7921476</a
+              >
+            </h5>
           </v-col>
         </v-row>
       </v-col>
