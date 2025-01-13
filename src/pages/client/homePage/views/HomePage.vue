@@ -11,7 +11,7 @@
       <Prices :prices="homePageData.prices"></Prices>
     </section>
     <section id="contact">
-      <Contact :contact-information="homePageData.contactInformation"></Contact>
+      <Contact></Contact>
     </section>
     <section id="footer">
       <Footer></Footer>
@@ -26,7 +26,6 @@ import Workers from "@/pages/client/homePage/components/workers/Workers";
 import Prices from "@/pages/client/homePage/components/prices/Prices";
 import Contact from "@/pages/client/homePage/components/contact/Contact";
 import Footer from "@/components/Footer";
-import { store } from "@/store";
 import { RepositoryFactory } from "@/repository/repositoryFactory";
 const HomePageRepository = RepositoryFactory.get("homePage");
 
@@ -42,26 +41,16 @@ export default {
   async mounted() {
     this.requestResult = await HomePageRepository.getAllInformation();
     this.homePageData = transform(this.requestResult);
-    setFooterData(this.homePageData.contactInformation);
   }
 };
 function transform(requestResult) {
   const requestData = requestResult.data.data;
   return {
     aboutUsText: requestData.aboutUs.text,
-    contactInformation: requestData.contactInformation,
     workers: requestData.workers,
     prices: requestData.prices,
     links: requestData.links
   };
-}
-
-function setFooterData(contactInformation) {
-  store.commit("setContactInformation", {
-    address: contactInformation.address,
-    phone: contactInformation.phone,
-    email: contactInformation.email
-  });
 }
 </script>
 

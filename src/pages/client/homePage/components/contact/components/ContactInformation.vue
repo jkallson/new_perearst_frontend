@@ -25,10 +25,7 @@
 
 <script>
 export default {
-  name: "ContactInformation",
-  props: {
-    contactInformation: Object
-  }
+  name: "ContactInformation"
 };
 </script>
 
