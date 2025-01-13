@@ -14,7 +14,7 @@
     <!--      <Contact></Contact>-->
     <!--    </section>-->
     <section id="contact">
-      <Contact2></Contact2>
+      <Contact></Contact>
     </section>
     <section id="footer">
       <Footer></Footer>
@@ -29,12 +29,12 @@ import Workers from "@/pages/client/homePage/components/workers/Workers";
 import Prices from "@/pages/client/homePage/components/prices/Prices";
 import Footer from "@/components/Footer";
 import { RepositoryFactory } from "@/repository/repositoryFactory";
-import Contact2 from "@/pages/client/homePage/components/contact2/Contact2.vue";
+import Contact from "@/pages/client/homePage/components/contact/Contact.vue";
 const HomePageRepository = RepositoryFactory.get("homePage");
 
 export default {
   name: "HomePage",
-  components: { Contact2, Footer, Prices, Workers, AboutUs, Header },
+  components: { Contact, Footer, Prices, Workers, AboutUs, Header },
   data() {
     return {
       requestResult: [],
