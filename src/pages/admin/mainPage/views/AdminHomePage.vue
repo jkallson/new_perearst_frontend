@@ -23,13 +23,6 @@
     </v-row>
     <v-row no-gutters class="pt-5">
       <v-col>
-        <AdminContactInformation
-          :contact-information="homePageData.contactInformation"
-        ></AdminContactInformation>
-      </v-col>
-    </v-row>
-    <v-row no-gutters class="pt-5">
-      <v-col>
         <AdminNotifications
           :notifications="homePageData.notifications"
         ></AdminNotifications>
@@ -49,7 +42,6 @@
 import AdminAboutUs from "@/pages/admin/mainPage/components/aboutUs/AdminAboutUs";
 import AdminWorkers from "@/pages/admin/mainPage/components/workers/AdminWorkers";
 import AdminPrices from "@/pages/admin/mainPage/components/prices/AdminPrices";
-import AdminContactInformation from "@/pages/admin/mainPage/components/contactInformation/AdminContactInformation";
 import AdminUsefulLinks from "@/pages/admin/mainPage/components/usefulLinks/AdminUsefulLinks";
 import AdminHeader from "@/pages/admin/mainPage/components/header/AdminHeader";
 import AdminNotifications from "@/pages/admin/mainPage/components/notifications/AdminNotifications";
@@ -63,7 +55,6 @@ export default {
     AdminNotifications,
     AdminHeader,
     AdminUsefulLinks,
-    AdminContactInformation,
     AdminPrices,
     AdminWorkers,
     AdminAboutUs
@@ -83,7 +74,6 @@ function transform(requestResult) {
   const requestData = requestResult.data.data;
   return {
     aboutUsText: requestData.aboutUs,
-    contactInformation: requestData.contactInformation,
     workers: requestData.workers,
     prices: requestData.prices.flatMap(element => element.data),
     links: requestData.links,

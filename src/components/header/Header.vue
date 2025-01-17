@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div>
     <v-app-bar app color="white" fixed>
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
@@ -17,7 +17,7 @@
       ></MobileHeaderLinks>
     </v-navigation-drawer>
     <BelowHeader v-if="showBelowHeader"></BelowHeader>
-  </fragment>
+  </div>
 </template>
 
 <script>

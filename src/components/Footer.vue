@@ -3,17 +3,19 @@
     <v-row justify="center" no-gutters>
       <v-col class="py-2 text-center white--text" cols="12">
         <v-row class="pt-0">
-          <v-col cols="12" sm="4">
+          <v-col cols="12" sm="6">
             <v-icon color="white">mdi-home</v-icon>
-            <h5>{{ address }}</h5>
+            <h5>Illimari 6, Ahja, Põlva vald 63710</h5>
           </v-col>
-          <v-col cols="12" sm="4">
+          <v-col cols="12" sm="6">
             <v-icon color="white">mdi-phone</v-icon>
-            <h5>{{ phone }}</h5>
-          </v-col>
-          <v-col cols="12" sm="4">
-            <v-icon color="white">mdi-at</v-icon>
-            <h5>{{ email }}</h5>
+            <h5>
+              <a
+                style="color: white !important; text-decoration: none"
+                href="tel:7921476"
+                >7921476</a
+              >
+            </h5>
           </v-col>
         </v-row>
       </v-col>
@@ -28,17 +30,7 @@
 export default {
   name: "Footer",
   data() {
-    return {
-      address: "",
-      email: "",
-      phone: ""
-    };
-  },
-  created() {
-    const contactInformation = JSON.parse(localStorage.getItem("vuex"));
-    this.address = contactInformation.address;
-    this.phone = contactInformation.phone;
-    this.email = contactInformation.email;
+    return {};
   }
 };
 </script>
